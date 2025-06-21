@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8us8wbox0v42"]
+[gd_scene load_steps=9 format=3 uid="uid://c8us8wbox0v42"]
 
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_7tovp"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="2_luqth"]
 [ext_resource type="Texture2D" uid="uid://btpdjy4efm746" path="res://icon.svg" id="3_luqth"]
+[ext_resource type="PackedScene" uid="uid://cb4j15qsupwwo" path="res://ui/pause_menu.tscn" id="4_8t4qb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tovp"]
 size = Vector2(1e+06, 181)
@@ -68,3 +69,5 @@ shape = SubResource("RectangleShape2D_8t4qb")
 
 [node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
 texture = ExtResource("3_luqth")
+
+[node name="Control" parent="." instance=ExtResource("4_8t4qb")]
