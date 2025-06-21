@@ -7,3 +7,6 @@ var leaderboard: Array = [["Peter", 3.0], ["Paul", 24.4], ["Clara", 0.5]]
 func add_to_leaderboard(name: String, time: float):
 	leaderboard.append([name, time])
 	leaderboard.sort_custom(func(a, b): return a[1] < b[1])
+
+func sort_leaderboard() -> void:
+	leaderboard.sort_custom(func(a, b): return a[1] < b[1])
