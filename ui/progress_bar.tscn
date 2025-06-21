@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://brvm602igwqwq"]
+
+[ext_resource type="Script" uid="uid://bul8k2cywkbp2" path="res://ui/progress_bar.gd" id="1_gtq4w"]
+[ext_resource type="Texture2D" uid="uid://grcwjbwpuh6x" path="res://assets/temp-egg_ui.png" id="2_4usvg"]
+
+[node name="SingleIconProgressBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gtq4w")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
+custom_minimum_size = Vector2(64, 16)
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -240.0
+offset_top = 29.0
+offset_right = 240.0
+offset_bottom = 109.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="ProgressIcon" type="TextureRect" parent="CanvasLayer/Panel"]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+grow_vertical = 2
+texture = ExtResource("2_4usvg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ProgressBackground" type="TextureRect" parent="CanvasLayer/Panel"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressForeground" type="TextureRect" parent="CanvasLayer/Panel"]
+z_index = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
