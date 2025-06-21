@@ -1,6 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://bqm14t7w2aije"]
+[gd_scene load_steps=2 format=3 uid="uid://eefgqkkekoce"]
 
-[ext_resource type="Script" uid="uid://mdhv4x4j666j" path="res://ui/hud.gd" id="1_rbyyf"]
+[ext_resource type="Script" path="res://ui/hud.gd" id="1_rbyyf"]
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("stopwatch_label")]
 layout_mode = 3
