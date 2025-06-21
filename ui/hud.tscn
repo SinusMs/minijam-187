@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://eefgqkkekoce"]
+[gd_scene load_steps=6 format=3 uid="uid://eefgqkkekoce"]
 
 [ext_resource type="Script" uid="uid://mdhv4x4j666j" path="res://ui/hud.gd" id="1_rbyyf"]
-[ext_resource type="PackedScene" path="res://ui/enter_name.tscn" id="2_276te"]
-[ext_resource type="PackedScene" path="res://ui/leaderboard.tscn" id="3_546lt"]
+[ext_resource type="PackedScene" uid="uid://e2wiilhoekjt" path="res://ui/enter_name.tscn" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://d3m1yw63xmw8i" path="res://ui/leaderboard.tscn" id="3_546lt"]
+[ext_resource type="PackedScene" uid="uid://d1m3go1td7shd" path="res://globals/chicken_game_music.tscn" id="4_7ihmi"]
+[ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="5_en2x2"]
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("stopwatch_label")]
 layout_mode = 3
@@ -27,3 +29,8 @@ offset_left = -83.0
 offset_top = 22.0
 offset_right = -83.0
 offset_bottom = 22.0
+
+[node name="ChickenGameMusic" parent="." instance=ExtResource("4_7ihmi")]
+autoplay = true
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_en2x2")]

@@ -19,7 +19,8 @@ func _ready() -> void:
 	# screenshake init
 	SignalBus.egg_broke.connect(shake_hud)
 	for child in get_children():
-			original_pos[child] = child.position
+		if child is CanvasLayer: continue
+		original_pos[child] = child.position
 	
 	
 func _process(delta: float) -> void:
