@@ -25,11 +25,12 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	update_stopwatch_label()
 	
-	# screenshake trigger, shake with P
+	# screenshake test trigger, shake with P
 	if Input.is_action_just_pressed("shake"):
 		shake_hud()
-		print("asdf")
-		
+		print("P -> screen shaking")
+	
+	# shaking
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shakeFade * delta)
 		for child in get_children():
