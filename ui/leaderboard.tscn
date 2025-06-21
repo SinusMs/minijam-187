@@ -1,0 +1,53 @@
+[gd_scene load_steps=3 format=3 uid="uid://d3m1yw63xmw8i"]
+
+[ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="1_wvlxr"]
+[ext_resource type="Script" uid="uid://cm3fnr77i7spr" path="res://ui/leaderboard_grid.gd" id="2_4tbto"]
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = 338.0
+offset_top = 23.0
+offset_right = 1003.0
+offset_bottom = 563.0
+color = Color(1, 0.380392, 1, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -289.5
+offset_right = 289.5
+offset_bottom = 97.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wvlxr")
+theme_override_font_sizes/font_size = 50
+text = "Position    "
+
+[node name="Label2" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wvlxr")
+theme_override_font_sizes/font_size = 50
+text = "   Name   "
+
+[node name="Label3" type="Label" parent="ColorRect/HBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_wvlxr")
+theme_override_font_sizes/font_size = 50
+text = "    Time"
+
+[node name="LeaderboardGrid" type="GridContainer" parent="."]
+offset_left = 385.0
+offset_top = 95.0
+offset_right = 965.0
+offset_bottom = 518.0
+theme_override_constants/h_separation = 250
+columns = 3
+script = ExtResource("2_4tbto")
