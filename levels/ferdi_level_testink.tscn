@@ -1,0 +1,56 @@
+[gd_scene load_steps=6 format=3 uid="uid://c8us8wbox0v42"]
+
+[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_7tovp"]
+[ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="2_luqth"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tovp"]
+size = Vector2(1e+06, 181)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tg4o1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7tovp"]
+width = 15797
+height = 180
+noise = SubResource("FastNoiseLite_tg4o1")
+
+[node name="FerdiLevelTestink" type="Node2D"]
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 80.5)
+shape = SubResource("RectangleShape2D_7tovp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(0, 81.2)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Floor"]
+position = Vector2(15737, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Floor"]
+position = Vector2(31500, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Floor"]
+position = Vector2(47288, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor"]
+position = Vector2(63088, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Floor"]
+position = Vector2(78888, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Floor"]
+position = Vector2(94646, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="CharacterController" parent="." instance=ExtResource("2_7tovp")]
+position = Vector2(0, -152)
+
+[node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_luqth")]
+player = NodePath("../CharacterController")

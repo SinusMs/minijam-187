@@ -1,0 +1,51 @@
+[gd_scene load_steps=6 format=3 uid="uid://bokydwynkrbia"]
+
+[ext_resource type="Texture2D" uid="uid://btpdjy4efm746" path="res://icon.svg" id="1_bn032"]
+[ext_resource type="Script" uid="uid://bmhsu3tnko74x" path="res://entities/character/state_machine.gd" id="2_5rbde"]
+[ext_resource type="Script" uid="uid://c2uxhropemok1" path="res://entities/character/egg.gd" id="3_jqtp5"]
+[ext_resource type="Script" uid="uid://bd0tonvbr6kkb" path="res://entities/character/chimken.gd" id="4_i81ls"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i81ls"]
+friction = 0.0
+bounce = 9.22337e+18
+absorbent = true
+
+[node name="CharacterControllerBody" type="RigidBody2D"]
+physics_material_override = SubResource("PhysicsMaterial_i81ls")
+
+[node name="ChimkenSprite" type="Sprite2D" parent="."]
+texture = ExtResource("1_bn032")
+
+[node name="EggSprite" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(1.5, 2.38419e-07)
+scale = Vector2(0.726562, 0.984375)
+texture = ExtResource("1_bn032")
+
+[node name="EggCollShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -64, 12, -62, 19, -60, 29, -56, 32, -53, 37, -47, 42, -40, 47, -33, 50, -26, 53, -20, 53, -14, 54, -9, 56, -3, 56, 4, 56, 9, 55, 16, 56, 25, 55, 32, 54, 37, 52, 42, 50, 47, 46, 51, 42, 53, 38, 56, 34, 58, 29, 59, 23, 60, 17, 61, 12, 62, 5, 63, 1, 63, -6, 63, -11, 63, -16, 62, -22, 61, -28, 60, -33, 57, -37, 54, -42, 50, -45, 47, -48, 42, -49, 37, -50, 31, -53, 27, -54, 22, -55, 17, -56, 12, -55, 4, -54, -1, -51, -10, -48, -18, -46, -24, -40, -32, -34, -38, -29, -45, -24, -52, -18, -57, -11, -61, -4, -63)
+disabled = true
+
+[node name="ChimkenCollShape" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(-61, -60, 60, -60, 60, 59, -61, 60)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_5rbde")
+initial_state = NodePath("Chimken")
+metadata/_custom_type_script = "uid://bmhsu3tnko74x"
+
+[node name="Egg" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "egg_shape", "egg_sprite")]
+script = ExtResource("3_jqtp5")
+character = NodePath("../..")
+egg_shape = NodePath("../../EggCollShape")
+egg_sprite = NodePath("../../EggSprite")
+metadata/_custom_type_script = "uid://c2uxhropemok1"
+
+[node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite")]
+script = ExtResource("4_i81ls")
+character = NodePath("../..")
+chimken_shape = NodePath("../../ChimkenCollShape")
+chimken_sprite = NodePath("../../ChimkenSprite")
+metadata/_custom_type_script = "uid://bd0tonvbr6kkb"
+
+[node name="CharacterController" type="Node2D" parent="."]
