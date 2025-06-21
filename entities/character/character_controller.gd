@@ -2,11 +2,12 @@ extends RigidBody2D
 
 var on_floor_currently: bool = false
 var on_floor: bool = false
+
 @export var floor_margin: float = 0.3
 var time = 0.0
 
 func _integrate_forces(state: PhysicsDirectBodyState2D) -> void:
-	on_floor_currently = false # reset on_floor for this physics frame
+	on_floor_currently = false
 	
 	var i := 0
 	while i < state.get_contact_count():
