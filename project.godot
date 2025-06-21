@@ -25,6 +25,19 @@ SignalBus="*res://globals/signalbus.gd"
 
 project/assembly_name="Ludum Dare 57"
 
+[file_customization]
+
+folder_colors={
+"res://aseprite/": "pink",
+"res://assets/": "purple",
+"res://entities/": "blue",
+"res://entities/character/": "teal",
+"res://entities/pickups/": "green",
+"res://globals/": "yellow",
+"res://levels/": "orange",
+"res://ui/": "red"
+}
+
 [input]
 
 jump={
