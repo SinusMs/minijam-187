@@ -5,5 +5,3 @@
 
 [node name="Corn" instance=ExtResource("1_hs7yb")]
 script = ExtResource("2_70ib5")
-
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
