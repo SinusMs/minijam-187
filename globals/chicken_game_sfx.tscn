@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://doxch3f2q3yj7"]
+
+[ext_resource type="AudioStream" uid="uid://dyybe2yxokvgw" path="res://assets/audio/sfx/shit_splurt.mp3" id="1_l0tyu"]
+
+[node name="ChickenGameSFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_l0tyu")
+autoplay = true
+bus = &"SFX"
