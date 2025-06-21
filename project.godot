@@ -25,6 +25,10 @@ SignalBus="*res://globals/signalbus.gd"
 
 project/assembly_name="Ludum Dare 57"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-vim/plugin.cfg")
+
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
