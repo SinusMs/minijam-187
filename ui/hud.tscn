@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://bqm14t7w2aije"]
+
+[ext_resource type="Script" uid="uid://mdhv4x4j666j" path="res://ui/hud.gd" id="1_rbyyf"]
+
+[node name="HUD" type="Control" node_paths=PackedStringArray("stopwatch_label")]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_rbyyf")
+stopwatch_label = NodePath("StopwatchLabel")
+shakeFade = 1.0
+
+[node name="StopwatchLabel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 541.0
+offset_top = 24.0
+offset_right = 581.0
+offset_bottom = 47.0
+text = "00:00:00"
