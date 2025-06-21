@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bokydwynkrbia"]
+
+[ext_resource type="Texture2D" uid="uid://btpdjy4efm746" path="res://icon.svg" id="1_bn032"]
+[ext_resource type="Script" uid="uid://bmhsu3tnko74x" path="res://entities/character/state_machine.gd" id="2_5rbde"]
+[ext_resource type="Script" uid="uid://c2uxhropemok1" path="res://entities/character/egg.gd" id="3_jqtp5"]
+
+[node name="CharacterController" type="RigidBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_bn032")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+polygon = PackedVector2Array(0, -63, -14, -60, -33, -41, -47, -9, -51, 47, -27, 62, 25, 62, 51, 47, 46, -9, 36, -41, 15, -60)
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+script = ExtResource("2_5rbde")
+initial_state = NodePath("Egg")
+metadata/_custom_type_script = "uid://bmhsu3tnko74x"
+
+[node name="Egg" type="Node" parent="StateMachine"]
+script = ExtResource("3_jqtp5")
+metadata/_custom_type_script = "uid://c2uxhropemok1"
