@@ -14,9 +14,3 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	pass
-	
-
-
-func _on_body_entered(body: Node2D) -> void:
-	SignalBus.pickup_picked.emit()
-	queue_free()
