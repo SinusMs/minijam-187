@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://bokydwynkrbia"]
+[gd_scene load_steps=7 format=3 uid="uid://bokydwynkrbia"]
 
+[ext_resource type="Script" uid="uid://rpfba4d1fiy7" path="res://entities/character/character_controller.gd" id="1_2peoh"]
 [ext_resource type="Texture2D" uid="uid://btpdjy4efm746" path="res://icon.svg" id="1_bn032"]
 [ext_resource type="Script" uid="uid://bmhsu3tnko74x" path="res://entities/character/state_machine.gd" id="2_5rbde"]
 [ext_resource type="Script" uid="uid://c2uxhropemok1" path="res://entities/character/egg.gd" id="3_jqtp5"]
@@ -12,6 +13,9 @@ absorbent = true
 
 [node name="CharacterControllerBody" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_i81ls")
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_2peoh")
 
 [node name="ChimkenSprite" type="Sprite2D" parent="."]
 texture = ExtResource("1_bn032")
@@ -39,6 +43,7 @@ script = ExtResource("3_jqtp5")
 character = NodePath("../..")
 egg_shape = NodePath("../../EggCollShape")
 egg_sprite = NodePath("../../EggSprite")
+crack_speed_threshold = 600.0
 metadata/_custom_type_script = "uid://c2uxhropemok1"
 
 [node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite")]
