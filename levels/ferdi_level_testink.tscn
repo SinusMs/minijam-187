@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://c8us8wbox0v42"]
+[gd_scene load_steps=8 format=3 uid="uid://c8us8wbox0v42"]
 
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_7tovp"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="2_luqth"]
+[ext_resource type="Texture2D" uid="uid://btpdjy4efm746" path="res://icon.svg" id="3_luqth"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tovp"]
 size = Vector2(1e+06, 181)
@@ -12,6 +13,9 @@ size = Vector2(1e+06, 181)
 width = 15797
 height = 180
 noise = SubResource("FastNoiseLite_tg4o1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t4qb"]
+size = Vector2(128, 124)
 
 [node name="FerdiLevelTestink" type="Node2D"]
 
@@ -54,3 +58,13 @@ position = Vector2(0, -152)
 
 [node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_luqth")]
 player = NodePath("../CharacterController")
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+position = Vector2(3309, -77)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8t4qb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
+texture = ExtResource("3_luqth")
