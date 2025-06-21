@@ -13,7 +13,7 @@ offset_left = 338.0
 offset_top = 23.0
 offset_right = 1003.0
 offset_bottom = 563.0
-color = Color(1, 0.380392, 1, 1)
+color = Color(1, 0.380392, 1, 0)
 
 [node name="HBoxContainer" type="HBoxContainer" parent="ColorRect"]
 layout_mode = 1
@@ -44,12 +44,12 @@ theme_override_fonts/font = ExtResource("1_wvlxr")
 theme_override_font_sizes/font_size = 50
 text = "    Time"
 
-[node name="LeaderboardGrid" type="GridContainer" parent="."]
+[node name="LeaderboardGrid" type="GridContainer" parent="ColorRect"]
 layout_mode = 0
-offset_left = 385.0
-offset_top = 95.0
-offset_right = 965.0
-offset_bottom = 518.0
+offset_left = 47.0
+offset_top = 72.0
+offset_right = 627.0
+offset_bottom = 495.0
 theme_override_constants/h_separation = 250
 columns = 3
 script = ExtResource("2_4tbto")
