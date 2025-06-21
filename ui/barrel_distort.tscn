@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b260efexgmu2c"]
+
+[ext_resource type="Script" uid="uid://diw7k4k41cgyo" path="res://ui/barrel_distort.gd" id="1_sdfs2"]
+[ext_resource type="Shader" uid="uid://dlgwvw4ln04vw" path="res://ui/barrel.gdshader" id="1_wtrsj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_sdfs2"]
+shader = ExtResource("1_wtrsj")
+shader_parameter/BarrelPower = 1.1
+
+[node name="CanvasLayer" type="CanvasLayer"]
+script = ExtResource("1_sdfs2")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_sdfs2")
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -574.5
+offset_top = -323.5
+offset_right = 574.5
+offset_bottom = 323.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

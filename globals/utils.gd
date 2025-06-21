@@ -3,6 +3,7 @@ extends Node
 
 var leaderboard: Array = [["Peter", 3.0], ["Paul", 24.4], ["Clara", 0.5]]
 
+var crt: bool = false 
 # adds playthrough to leadboard and sorts instantly in ascending order
 func add_to_leaderboard(name: String, time: float):
 	leaderboard.append([name, time])
