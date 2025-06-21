@@ -22,6 +22,7 @@ func enter() -> void:
 	character.physics_material_override.friction = 1.0
 	speed = initial_speed
 	egg_sprite.play("egg")
+	print("eggus maximus")
 
 func exit() -> void:
 	egg_shape.disabled = true
@@ -40,9 +41,6 @@ func physics_update(_delta: float) -> void:
 	character.apply_force(Vector2(speed, 0.0))
 	var current_speed: float = character.linear_velocity.length() 
 	if prev_speed - current_speed > crack_speed_threshold:
-		egg_sprite.play("splat")
-		character.rotation = 0.0
-		await egg_sprite.animation_finished
-		transitioned.emit(self, "chimken")
+		transitioned.emit(self, "cracking")
 	prev_speed = current_speed
 	

@@ -28,7 +28,7 @@ func exit() -> void:
 
 func update(delta: float) -> void:
 	if Input.is_action_just_pressed("evolve"):
-		transitioned.emit(self, "egg")
+		transitioned.emit(self, "shitting")
 	if character.on_floor:
 		jump_counter = jump_amount
 	time += delta
@@ -43,9 +43,7 @@ func physics_update(_delta: float) -> void:
 		character.apply_impulse(Vector2(0.0, -jump_strenght))
 		jump_counter -= 1
 		time = 0.0
-		chimken_sprite.stop()
-		chimken_sprite.play("chick_jump")
-		await chimken_sprite.animation_finished
+		transitioned.emit(self, "jumping")
 	
 	if character.on_floor_currently:
 		if current_speed > 100.0:
