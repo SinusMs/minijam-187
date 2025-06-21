@@ -8,6 +8,7 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 338.0
 offset_top = 23.0
 offset_right = 1003.0
@@ -44,6 +45,7 @@ theme_override_font_sizes/font_size = 50
 text = "    Time"
 
 [node name="LeaderboardGrid" type="GridContainer" parent="."]
+layout_mode = 0
 offset_left = 385.0
 offset_top = 95.0
 offset_right = 965.0
