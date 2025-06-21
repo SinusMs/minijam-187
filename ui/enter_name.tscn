@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://e2wiilhoekjt"]
+
+[ext_resource type="Script" uid="uid://cgsw458nrx0ir" path="res://ui/enter_name.gd" id="1_sm8sv"]
+
+[node name="EnterName" type="Node2D"]
+script = ExtResource("1_sm8sv")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+offset_top = 30.0
+offset_right = 133.0
+offset_bottom = 61.0
+
+[node name="Label" type="Label" parent="."]
+offset_right = 69.0
+offset_bottom = 31.0
+text = "Enter your name:"
