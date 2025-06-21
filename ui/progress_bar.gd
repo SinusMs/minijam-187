@@ -1,19 +1,35 @@
 extends Control
 
-var progress_start: int;
-var progress_end: int;
-var progress_current: int;
-var time_total: float = 0.0;
+## x-coordinate of progress bar start in panel-space
+var progress_start: int; 
+
+## x-coordinate of progress bar end in panel-space
+var progress_end: int; 
+
+## progress bar's progress ranging from 0 to 1
+var progress_current: float; 
+
+var time_total: float = 0.0; # testing var
 
 func _ready():
-    progress_start = $"CanvasLayer/Panel/TextureRect".position.x;
-    progress_end = progress_start + $"CanvasLayer/Panel".size.x - 16;
-
+	# Setup progress bar start and end
+	progress_start = $"CanvasLayer/Panel/ProgressIcon".position.x;
+	progress_end = progress_start + $"CanvasLayer/Panel".size.x - $CanvasLayer/Panel/ProgressIcon.size.x;
+	SignalBus.MoveProgressBar.connect(move_chicken_icon);
 
 func _process(delta):
-    time_total += delta;
-    $"CanvasLayer/Panel/TextureRect".position.x = lerp(progress_start, progress_end, time_total / 10);
-    pass
+	# Debugging
+	if Input.is_key_pressed(KEY_R):
+		time_total = 0;
+		
+	# Testing
+	time_total += delta;
+	var progress: float = lerp(progress_start, progress_end, clampf(time_total / 10, 0, 1));
+	move_chicken_icon(progress);
 
-func move_chicken_icon() -> void:
-    pass
+## Moves the UI Progress Icon to [param progress]% [br]
+## Sets [member progress_current] to [param progress]
+func move_chicken_icon(progress: float) -> void:
+	progress_current = progress;
+	$"CanvasLayer/Panel/ProgressIcon".position.x = progress_current;
+	pass
