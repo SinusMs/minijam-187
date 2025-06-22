@@ -175,6 +175,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ecc8j"]
+radius = 6.0
+height = 16.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybtjf"]
 radius = 12.0
 
@@ -189,11 +193,10 @@ can_shit = true
 
 [node name="ChimkenSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v821y")
-animation = &"chick_jump"
+animation = &"egg"
 
-[node name="EggCollShape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-3, -7, -6, -4, -7, -2, -7, 3, -6, 5, -3, 8, 2, 8, 5, 5, 6, 3, 6, -2, 5, -4, 2, -7)
-disabled = true
+[node name="EggCollShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ecc8j")
 
 [node name="ChimkenCollShape" type="CollisionShape2D" parent="."]
 position = Vector2(1, -2)
@@ -210,7 +213,6 @@ character = NodePath("../..")
 egg_shape = NodePath("../../ChimkenCollShape")
 egg_sprite = NodePath("../../ChimkenSprite")
 particle_emitter = NodePath("../../ChickenParticleEmitter")
-crack_speed_threshold = 2000.0
 metadata/_custom_type_script = "uid://c2uxhropemok1"
 
 [node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite", "particle_emitter")]
@@ -222,12 +224,6 @@ particle_emitter = NodePath("../../ChickenParticleEmitter")
 jump_amount = 10
 jump_cooldown = 0.01
 metadata/_custom_type_script = "uid://bd0tonvbr6kkb"
-
-[node name="Cracking" type="Node" parent="StateMachine" node_paths=PackedStringArray("egg_sprite", "character", "chimken_shape")]
-script = ExtResource("6_cjobk")
-egg_sprite = NodePath("../../ChimkenSprite")
-character = NodePath("../..")
-chimken_shape = NodePath("../../ChimkenCollShape")
 
 [node name="Shitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("chimken_sprite", "character", "chimken_shape")]
 script = ExtResource("7_ybtjf")
@@ -247,5 +243,12 @@ metadata/_custom_type_script = "uid://c6yiuqx2hiq21"
 script = ExtResource("9_ecc8j")
 character = NodePath("../..")
 sprite = NodePath("../../ChimkenSprite")
+
+[node name="Cracking" type="Node" parent="StateMachine" node_paths=PackedStringArray("egg_sprite", "character", "chimken_shape")]
+script = ExtResource("6_cjobk")
+egg_sprite = NodePath("../../ChimkenSprite")
+character = NodePath("../..")
+chimken_shape = NodePath("../../ChimkenCollShape")
+metadata/_custom_type_script = "uid://bpqig4m2x7qas"
 
 [node name="ChickenParticleEmitter" parent="." instance=ExtResource("9_ybtjf")]

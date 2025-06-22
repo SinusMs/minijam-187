@@ -1,28 +1,26 @@
-[gd_scene load_steps=5 format=4 uid="uid://dru1ymb68hu4d"]
+[gd_scene load_steps=4 format=4 uid="uid://bhxngojkcerm2"]
 
-[ext_resource type="TileSet" uid="uid://dpc4qslxyke1v" path="res://levels/new_tileset.tres" id="1_bgk2m"]
-[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_imh2l"]
-[ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_uh5e5"]
+
+[ext_resource type="Script" uid="uid://dm4b31s10w5ib" path="res://levels/reset_mini_level.gd" id="1_b0pd6"]
+[ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_bgk2m"]
+
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="4_bpaay"]
 
 [node name="ChimkenMiniLevel" type="Node2D"]
+script = ExtResource("1_b0pd6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
+position = Vector2(320, -128)
 tile_map_data = PackedByteArray("AAD9/wEAAAAKAAQAAAD+/wEAAAAMAAQAAAD//wEAAAAMAAQAAAAAAAEAAAAMAAQAAAABAAEAAAAMAAQAAAACAAEAAAAMAAQAAAADAAEAAAALAAQAAAAFAP//AAAKAAQAAAAGAP//AAAMAAQAAAAHAP//AAAMAAQAAAAIAP//AAALAAQAAAALAP3/AAAKAAQAAAAMAP3/AAAMAAQAAAANAP3/AAALAAQAAAAIAPv/AAALAAQAAAAHAPv/AAAMAAQAAAAGAPv/AAAMAAQAAAAFAPv/AAAPAAUAAAAFAPr/AAAMAAQAAFAFAPn/AAAPAAUAAFAGAPn/AAAKAAQAADAMAPn/AAALAAQAAAALAPn/AAAKAAQAAAAOAPj/AAAKAAQAAAAPAPj/AAAMAAQAAAAQAPj/AAAMAAQAAAARAPj/AAALAAQAAAACAPf/AAAKAAQAAAADAPf/AAALAAQAAAAGAPX/AAAKAAQAAAAHAPX/AAALAAQAAAA=")
 tile_set = ExtResource("1_bgk2m")
-
-[node name="CharacterControllerBody" parent="." instance=ExtResource("2_imh2l")]
-
-[node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_uh5e5")]
-player = NodePath("../CharacterControllerBody")
 
 [node name="pickups" type="Node" parent="."]
 
 [node name="NougatBits" parent="pickups" instance=ExtResource("4_bpaay")]
-position = Vector2(226, -349)
+position = Vector2(549, -475)
 
 [node name="NougatBits2" parent="pickups" instance=ExtResource("4_bpaay")]
-position = Vector2(506, -260)
+position = Vector2(880, -392)
 
 [node name="NougatBits3" parent="pickups" instance=ExtResource("4_bpaay")]
-position = Vector2(199, -165)
+position = Vector2(516, -287)

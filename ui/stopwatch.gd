@@ -12,7 +12,7 @@ func _process(delta: float) -> void:
 	if stopped:
 		return
 	time += delta
-	
+	Utils.time = time
 	text = time_to_string()
 	
 func reset() -> void:

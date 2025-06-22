@@ -2,6 +2,8 @@ shader_type canvas_item;
 
 uniform bool applyShader = false;
 
+uniform sampler2D screen_texture: hint_screen_texture, repeat_disable, filter_nearest_mipmap;
+
 #define COLOR_AMOUNT 14
 
 const vec3 colors[COLOR_AMOUNT] = {
@@ -18,10 +20,11 @@ void vertex() {
 }
 
 void fragment() {
+	
+	vec3 currColor = texture(screen_texture, SCREEN_UV).rgb;
 	if(applyShader) {
 		for(int i = 0; i < COLOR_AMOUNT; i++) {
-			if (COLOR.a == 0.0) discard;
-			if(length(abs(COLOR.rgb - colors[i])) < 0.1) {
+			if(length(abs(currColor - colors[i])) < 0.01) {
 				if(i % 2 == 0) {
 					COLOR = vec4(colors[i + 1], 1.0);
 					break;

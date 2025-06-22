@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://dm1u6whgit33u"]
+[gd_scene load_steps=12 format=3 uid="uid://dm1u6whgit33u"]
 
 [ext_resource type="PackedScene" uid="uid://drijtvq1ycw5o" path="res://entities/pickups/pickup.tscn" id="1_736wk"]
 [ext_resource type="Script" uid="uid://o85j21iujaad" path="res://entities/pickups/nougat_bits.gd" id="2_6c8tu"]
@@ -57,16 +57,6 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eiapt"]
 size = Vector2(12, 16)
 
-[sub_resource type="Gradient" id="Gradient_6c8tu"]
-offsets = PackedFloat32Array(0, 0.737374)
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_hvbuy"]
-gradient = SubResource("Gradient_6c8tu")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-metadata/_snap_enabled = true
-
 [node name="NougatBits" instance=ExtResource("1_736wk")]
 script = ExtResource("2_6c8tu")
 
@@ -78,8 +68,3 @@ frame_progress = 0.985466
 [node name="CollisionShape2D" parent="." index="1"]
 position = Vector2(1, -2)
 shape = SubResource("RectangleShape2D_eiapt")
-
-[node name="PointLight2D" type="PointLight2D" parent="." index="2"]
-color = Color(0.192157, 0.0196078, 0.117647, 1)
-energy = 5.0
-texture = SubResource("GradientTexture2D_hvbuy")
