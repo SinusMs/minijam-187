@@ -16,6 +16,8 @@ func enter() -> void:
 	chimken_sprite.position = Vector2(0, 0)
 	Utils.generation += 1
 	transitioned.emit(self, "egg")
+	SignalBus.SwapShaderEffect.emit()
+
 
 func exit() -> void:
 	character.can_shit = false

@@ -32,3 +32,5 @@ signal survived_persuer();
 signal pre_persuer_state();
 
 signal unalived();
+
+signal SwapShaderEffect();
