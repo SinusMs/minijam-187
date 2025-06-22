@@ -43,4 +43,5 @@ func on_game_restarted() -> void:
 	call_deferred("add_child", load("res://levels/start_level.tscn").instantiate())
 
 func on_unalived():
+	
 	pass
