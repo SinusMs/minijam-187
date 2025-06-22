@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://c75ppsa6fbbwj" path="res://assets/leaderboard.png" id="1_4tbto"]
 [ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="1_wvlxr"]
-[ext_resource type="Script" path="res://ui/leaderboard_grid.gd" id="2_4tbto"]
+[ext_resource type="Script" uid="uid://cm3fnr77i7spr" path="res://ui/leaderboard_grid.gd" id="2_4tbto"]
 
 [node name="Leaderboard" type="Control"]
 layout_mode = 3
