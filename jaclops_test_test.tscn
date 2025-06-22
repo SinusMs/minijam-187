@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://byhgdasljvu47"]
+
+[ext_resource type="PackedScene" uid="uid://c8us8wbox0v42" path="res://levels/ferdi_level_testink.tscn" id="1_nqv04"]
+[ext_resource type="PackedScene" uid="uid://dr6j4nqebob3m" path="res://muschebubu.tscn" id="2_rh4ky"]
+[ext_resource type="Script" uid="uid://bc1wk3wj8e0dn" path="res://trigger_persuer.gd" id="3_hbs3v"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_32kyp"]
+
+[sub_resource type="GDScript" id="GDScript_ea65u"]
+script/source = "extends Node2D
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if(body.name == \"CharacterController\"):
+		SignalBus.emit_signal(\"trigger_persuer\")
+	pass
+"
+
+[node name="FerdiLevelTestink" instance=ExtResource("1_nqv04")]
+
+[node name="Area2D" type="Area2D" parent="." index="1"]
+position = Vector2(-710, -513)
+script = ExtResource("3_hbs3v")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
+position = Vector2(1229, 14)
+scale = Vector2(-13.7223, 56.2943)
+shape = SubResource("RectangleShape2D_32kyp")
+
+[node name="Node2D" parent="CharacterCamera" index="0" instance=ExtResource("2_rh4ky")]
+position = Vector2(-1.81173, 6.76149)
+rotation = 0.261799
+script = SubResource("GDScript_ea65u")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

@@ -6,6 +6,7 @@ class_name Jumping
 @export var chimken_shape: CollisionPolygon2D
 
 func enter() -> void:
+	SignalBus.connect("trigger_persuer", _on_trigger_persuer)
 	chimken_shape.disabled = false
 	chimken_sprite.play("chick_jump")
 	await chimken_sprite.animation_finished
@@ -20,3 +21,6 @@ func update(_delta: float) -> void:
 
 func physics_update(_delta: float) -> void:
 	pass
+	
+func _on_trigger_persuer():
+	transitioned.emit(self, "persuerevent")

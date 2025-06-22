@@ -17,7 +17,7 @@ var time = 0.0
 @export var jump_strenght = 500.0
 
 func enter() -> void:
-	transitioned.emit(self, "chimken")
+	SignalBus.connect("trigger_persuer", _on_trigger_persuer)
 	egg_shape.disabled = false
 	character.physics_material_override.friction = 1.0
 	speed = initial_speed
@@ -44,3 +44,6 @@ func physics_update(_delta: float) -> void:
 		transitioned.emit(self, "cracking")
 	prev_speed = current_speed
 	
+func _on_trigger_persuer():
+	print("prrr")
+	transitioned.emit(self, "PersuerEvent")

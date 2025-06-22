@@ -1,13 +1,14 @@
-[gd_scene load_steps=30 format=3 uid="uid://bokydwynkrbia"]
+[gd_scene load_steps=31 format=3 uid="uid://bokydwynkrbia"]
 
 [ext_resource type="Script" uid="uid://rpfba4d1fiy7" path="res://entities/character/character_controller.gd" id="1_2peoh"]
 [ext_resource type="Script" uid="uid://bmhsu3tnko74x" path="res://entities/character/state_machine.gd" id="2_5rbde"]
 [ext_resource type="Texture2D" uid="uid://pf5r75lqjuv3" path="res://assets/player/chimkenEgg.png" id="2_y5qnr"]
 [ext_resource type="Script" uid="uid://c2uxhropemok1" path="res://entities/character/egg.gd" id="3_jqtp5"]
 [ext_resource type="Script" uid="uid://bd0tonvbr6kkb" path="res://entities/character/chimken.gd" id="4_i81ls"]
-[ext_resource type="Script" uid="uid://bpqig4m2x7qas" path="res://entities/character/cracking.gd" id="6_cjobk"]
+[ext_resource type="Script" path="res://entities/character/cracking.gd" id="6_cjobk"]
 [ext_resource type="Script" uid="uid://bthe1f6noc4w0" path="res://entities/character/shitting.gd" id="7_ybtjf"]
 [ext_resource type="Script" uid="uid://c6yiuqx2hiq21" path="res://entities/character/jumping.gd" id="8_ecc8j"]
+[ext_resource type="Script" uid="uid://1r4w35mas84v" path="res://entities/character/persuer_event.gd" id="9_ybtjf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i81ls"]
 friction = 0.0
@@ -223,7 +224,6 @@ script = ExtResource("6_cjobk")
 egg_sprite = NodePath("../../ChimkenSprite")
 character = NodePath("../..")
 chimken_shape = NodePath("../../ChimkenCollShape")
-metadata/_custom_type_script = "uid://bpqig4m2x7qas"
 
 [node name="Shitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("chimken_sprite", "character", "chimken_shape")]
 script = ExtResource("7_ybtjf")
@@ -238,3 +238,8 @@ character = NodePath("../..")
 chimken_sprite = NodePath("../../ChimkenSprite")
 chimken_shape = NodePath("../../ChimkenCollShape")
 metadata/_custom_type_script = "uid://c6yiuqx2hiq21"
+
+[node name="PersuerEvent" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "sprite")]
+script = ExtResource("9_ybtjf")
+character = NodePath("../..")
+sprite = NodePath("../../ChimkenSprite")

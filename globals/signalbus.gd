@@ -13,3 +13,9 @@ signal name_entered(name: String)
 signal MoveProgressBar(progress: float); 
 
 signal trigger_persuer();
+
+signal survived_persuer();
+
+signal pre_persuer_state();
+
+signal unalived();
