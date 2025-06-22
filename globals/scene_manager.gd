@@ -30,7 +30,8 @@ func on_game_finished() -> void:
 
 func on_egg_broke(pos: Vector2) -> void:
 	var rand_mini_level = mini_level[randi_range(0, 2)]
-	add_child(rand_mini_level)
+	if get_node_or_null(rand_mini_level.name) == null:
+		add_child(rand_mini_level)
 	rand_mini_level.global_position = pos
 	if rand_mini_level.has_method("reset"):
 		print("broke")
