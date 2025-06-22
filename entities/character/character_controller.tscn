@@ -8,12 +8,11 @@
 [ext_resource type="Script" uid="uid://bpqig4m2x7qas" path="res://entities/character/cracking.gd" id="6_cjobk"]
 [ext_resource type="Script" uid="uid://bthe1f6noc4w0" path="res://entities/character/shitting.gd" id="7_ybtjf"]
 [ext_resource type="Script" uid="uid://c6yiuqx2hiq21" path="res://entities/character/jumping.gd" id="8_ecc8j"]
-[ext_resource type="Script" uid="uid://1r4w35mas84v" path="res://entities/character/persuer_event.gd" id="9_ecc8j"]
-[ext_resource type="PackedScene" uid="uid://b554hksx6qxt3" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
+[ext_resource type="Script" path="res://entities/character/persuer_event.gd" id="9_ecc8j"]
+[ext_resource type="PackedScene" uid="uid://dkm2eec6qtuej" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i81ls"]
 friction = 2.0
-
 bounce = 9.22337e+18
 absorbent = true
 
@@ -186,6 +185,7 @@ radius = 12.0
 [node name="CharacterControllerBody" type="RigidBody2D"]
 mass = 0.495
 physics_material_override = SubResource("PhysicsMaterial_i81ls")
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_2peoh")
