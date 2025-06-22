@@ -5,9 +5,11 @@ var leaderboard: Array = [["Peter", 3.0], ["Paul", 24.4], ["Clara", 0.5]]
 
 var crt: bool = false 
 
-var spent_generations: int = 0
+var generation: int = 0
 
 var total_pickups_eaten: int = 0
+var current_pickups: int = 0
+var needed_pickups: int = 0
 
 var progress: float = 0.0
 
