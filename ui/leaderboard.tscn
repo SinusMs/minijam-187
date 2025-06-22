@@ -15,6 +15,7 @@ anchors_preset = 0
 script = ExtResource("1_r3wwd")
 
 [node name="blur_rect" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_r3wwd")
 layout_mode = 0
 offset_right = 40.0

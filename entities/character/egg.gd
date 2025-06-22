@@ -20,9 +20,13 @@ var time = 0.0
 
 @export var jump_strenght = 500.0
 
+var connected = false
+
 func enter() -> void:
+	if not connected:
+		SignalBus.connect("trigger_persuer", _on_trigger_persuer)
+		connected = true	
 	egg_shape.disabled = false
-	character.physics_material_override.friction = 1.0
 	speed = initial_speed
 	$"../..".max_speed = egg_max_speed
 	$"../..".mass = egg_weight
@@ -30,6 +34,7 @@ func enter() -> void:
 
 	egg_sprite.play("egg")
 	print("eggus maximus")
+	SignalBus.stop_persuer.emit()
 
 func exit() -> void:
 	egg_shape.disabled = true
@@ -52,3 +57,6 @@ func physics_update(_delta: float) -> void:
 		transitioned.emit(self, "cracking")
 	prev_speed = current_speed
 	
+func _on_trigger_persuer():
+	print("prrr")
+	transitioned.emit(self, "PersuerEvent")

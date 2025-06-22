@@ -1,0 +1,19 @@
+[gd_scene load_steps=6 format=3 uid="uid://dkbwbo83xqp0"]
+
+[ext_resource type="AudioStream" uid="uid://m7vqivnfbofs" path="res://assets/audio/sfx/shitting1.mp3" id="1_amdrk"]
+[ext_resource type="AudioStream" uid="uid://uy18e5o7lc2c" path="res://assets/audio/sfx/shitting2.mp3" id="2_bfjd5"]
+[ext_resource type="AudioStream" uid="uid://djgsy8howfk7o" path="res://assets/audio/sfx/shitting3.mp3" id="3_xseg3"]
+[ext_resource type="AudioStream" uid="uid://dyybe2yxokvgw" path="res://assets/audio/sfx/shit_splurt.mp3" id="4_he52r"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_4j03l"]
+streams_count = 4
+stream_0/stream = ExtResource("1_amdrk")
+stream_1/stream = ExtResource("2_bfjd5")
+stream_2/stream = ExtResource("3_xseg3")
+stream_3/stream = ExtResource("4_he52r")
+stream_3/weight = 0.01
+
+[node name="Shit_SFX" type="AudioStreamPlayer2D"]
+scale = Vector2(1.00848, 1.07042)
+stream = SubResource("AudioStreamRandomizer_4j03l")
+bus = &"SFX"

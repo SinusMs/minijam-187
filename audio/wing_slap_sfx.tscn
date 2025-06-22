@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dw515ny1u80ce"]
+
+[ext_resource type="AudioStream" uid="uid://or4us8lyr6lf" path="res://assets/audio/sfx/wingslap.mp3" id="1_trlyu"]
+
+[node name="WingSlap_SFX" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_trlyu")
+bus = &"SFX"

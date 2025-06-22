@@ -12,6 +12,7 @@ func enter() -> void:
 	SignalBus.egg_broke.emit(character.global_position)
 	await egg_sprite.animation_finished
 	transitioned.emit(self, "chimken")
+	SignalBus.move_persuer.emit()
 
 func exit() -> void:
 	chimken_shape.disabled = true

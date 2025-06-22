@@ -20,9 +20,6 @@ var player_name: String
 
 func _ready() -> void:
 	SignalBus.name_entered.connect(on_name_entered)
-	
-
-	
 
 # adds playthrough to leadboard and sorts instantly in ascending order
 func add_to_leaderboard(name: String, time: float):

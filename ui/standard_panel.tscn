@@ -17,7 +17,6 @@ offset_right = 64.0
 offset_bottom = 20.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_tx66a")
 script = ExtResource("2_ckbl2")
-text = "asd"
 
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
