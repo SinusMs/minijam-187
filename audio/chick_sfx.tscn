@@ -1,0 +1,32 @@
+[gd_scene load_steps=10 format=3 uid="uid://6npcm6iuds5r"]
+
+[ext_resource type="AudioStream" uid="uid://c65sls65el3hk" path="res://assets/audio/sfx/chick1.mp3" id="1_6of6m"]
+[ext_resource type="AudioStream" uid="uid://bf3pa1rn7hxgy" path="res://assets/audio/sfx/chick2.mp3" id="2_n4k37"]
+[ext_resource type="AudioStream" uid="uid://xaoak6y5alnb" path="res://assets/audio/sfx/chick3.mp3" id="3_ntfqe"]
+[ext_resource type="AudioStream" uid="uid://rps6fx3hxopp" path="res://assets/audio/sfx/chick5.mp3" id="4_8n5k7"]
+[ext_resource type="AudioStream" uid="uid://6dp4b8u32rko" path="res://assets/audio/sfx/chick4.mp3" id="5_axhe5"]
+[ext_resource type="AudioStream" uid="uid://js6ix0t0a6ta" path="res://assets/audio/sfx/specialChick1.mp3" id="6_bl7xb"]
+[ext_resource type="AudioStream" uid="uid://dm138snwm7dv2" path="res://assets/audio/sfx/specialChick2.mp3" id="7_s3t64"]
+[ext_resource type="Script" uid="uid://rmxc7bnarq6y" path="res://audio/chick_sfx.gd" id="8_n4k37"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_76yhs"]
+streams_count = 7
+stream_0/stream = ExtResource("1_6of6m")
+stream_1/stream = ExtResource("2_n4k37")
+stream_2/stream = ExtResource("3_ntfqe")
+stream_3/stream = ExtResource("4_8n5k7")
+stream_4/stream = ExtResource("5_axhe5")
+stream_5/stream = ExtResource("6_bl7xb")
+stream_5/weight = 0.1
+stream_6/stream = ExtResource("7_s3t64")
+stream_6/weight = 0.1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D"]
+stream = SubResource("AudioStreamRandomizer_76yhs")
+volume_db = 2.943
+bus = &"SFX"
+script = ExtResource("8_n4k37")
+
+[node name="Timer" type="Timer" parent="."]
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

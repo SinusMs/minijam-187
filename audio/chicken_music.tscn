@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://de016iersx2t6"]
+
+[ext_resource type="AudioStream" uid="uid://bq4g3uf21i2d5" path="res://assets/audio/music/BeepBox-Song.mp3" id="1_rt66y"]
+
+[node name="ChickenMusic" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_rt66y")
+volume_db = 1.962
+autoplay = true
+bus = &"Music"
