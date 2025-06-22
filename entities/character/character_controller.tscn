@@ -14,7 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://dkbwbo83xqp0" path="res://audio/shit_sfx.tscn" id="12_v821y"]
 [ext_resource type="PackedScene" uid="uid://bb1g7f43tjmuk" path="res://audio/egg_crack_sfx.tscn" id="13_230m7"]
 [ext_resource type="PackedScene" uid="uid://6npcm6iuds5r" path="res://audio/chick_sfx.tscn" id="14_3l65k"]
-[ext_resource type="PackedScene" uid="uid://bq8dhmh4l0v3i" path="res://audio/nom_sfx.tscn" id="15_v821y"]
+[ext_resource type="PackedScene" path="res://audio/nom_sfx.tscn" id="15_v821y"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i81ls"]
 friction = 2.0
