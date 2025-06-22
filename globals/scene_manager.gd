@@ -35,7 +35,7 @@ func on_egg_broke(pos: Vector2) -> void:
 	rand_mini_level_scene.global_position = pos
 	if rand_mini_level_scene.has_method("reset"):
 		rand_mini_level_scene.reset()
-	
+
 func on_game_restarted() -> void:
 	for node in get_children():
 		node.queue_free()
