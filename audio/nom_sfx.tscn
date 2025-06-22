@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bq8dhmh4l0v3i"]
+
+[ext_resource type="AudioStream" uid="uid://hdb3re5fvs5w" path="res://assets/audio/sfx/devour.mp3" id="1_wr28s"]
+
+[node name="nom_sfx" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_wr28s")
+bus = &"SFX"

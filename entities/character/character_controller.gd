@@ -61,6 +61,7 @@ func _physics_process(delta: float) -> void:
 		linear_velocity.x = max_speed * sign(linear_velocity.x)
 
 func _on_pickup(type: Pickup) -> void:
+	$nom_sfx.play()
 	if type is NougatBits:
 		shit_amount -= 1
 		Utils.current_pickups += 1
