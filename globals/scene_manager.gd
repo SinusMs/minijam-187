@@ -19,7 +19,7 @@ func _ready() -> void:
 func on_start_game() -> void:
 	for node in get_children():
 		node.queue_free()
-	call_deferred("add_child", load("res://levels/level2_hans.tscn").instantiate())
+	call_deferred("add_child", load("res://levels/level_part_ferdi.tscn").instantiate())
 	print("start game")
 
 func on_game_finished() -> void:
@@ -33,6 +33,7 @@ func on_egg_broke(pos: Vector2) -> void:
 	add_child(rand_mini_level)
 	rand_mini_level.global_position = pos
 	if rand_mini_level.has_method("reset"):
+		print("broke")
 		rand_mini_level.reset()
 	
 func on_game_restarted() -> void:
