@@ -1,11 +1,12 @@
-[gd_scene load_steps=9 format=4 uid="uid://c7wl03wr4hbs1"]
+[gd_scene load_steps=12 format=4 uid="uid://c7wl03wr4hbs1"]
 
 [ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_vl08x"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_7mpxg"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_ivlww"]
 [ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="4_bdaa4"]
-[ext_resource type="PackedScene" uid="uid://cam1a8ik8cvgj" path="res://levels/parallax_background.tscn" id="5_7mpxg"]
+[ext_resource type="PackedScene" path="res://levels/parallax_background.tscn" id="5_7mpxg"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="6_ivlww"]
+[ext_resource type="Shader" uid="uid://b52x6m8ijaarq" path="res://assets/shaders/color_swap_shader.gdshader" id="7_bdaa4"]
 
 [sub_resource type="GDScript" id="GDScript_7mpxg"]
 script/source = "extends Area2D
@@ -35,15 +36,16 @@ script/source = "extends BackBufferCopy
 var apply: bool = false;
 
 func _ready() -> void:
-	SignalBus.SwapShaderEffect.connect(swapShader);
-
+	SignalBus.SwapShaderEffect.connect(swapShader)
+	
+	
 func swapShader() -> void:
 	$ColorRect.material.set_shader_parameter(\"applyShader\", !apply);
 	apply = !apply;
 "
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ci58w"]
-shader = ExtResource("6_ivlww")
+shader = ExtResource("7_bdaa4")
 shader_parameter/applyShader = false
 
 [node name="LevelPartFerdi" type="Node2D"]
@@ -71,6 +73,8 @@ player = NodePath("../CharacterControllerBody")
 [node name="HUD" parent="CharacterCamera" instance=ExtResource("4_bdaa4")]
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_7mpxg")]
+scale = Vector2(1, 1)
+transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 scroll_base_offset = Vector2(0, 320)
 
 [node name="Area2D" type="Area2D" parent="."]
@@ -85,5 +89,23 @@ position = Vector2(241, 12)
 
 [node name="NougatBits2" parent="." instance=ExtResource("6_ivlww")]
 position = Vector2(919, 51)
+
+[node name="LevelStart" type="Node2D" parent="."]
+
+[node name="LevelEnd" type="Node2D" parent="."]
+position = Vector2(20678, 3019)
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+copy_mode = 2
+script = SubResource("GDScript_bdaa4")
+
+[node name="ColorRect" type="ColorRect" parent="BackBufferCopy"]
+material = SubResource("ShaderMaterial_ci58w")
+offset_left = -19654.0
+offset_top = -12285.0
+offset_right = -19614.0
+offset_bottom = -12245.0
+scale = Vector2(1488.67, 570.301)
+color = Color(1, 1, 1, 0)
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
