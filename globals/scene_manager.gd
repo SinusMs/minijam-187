@@ -8,8 +8,9 @@ var mini_level: Array = [preload("res://levels/chimken_mini_level1.tscn").instan
 
 func _ready() -> void:
 	#start with level0
+	$introtimer.start()
 	#get_tree().change_scene_to_file("res://globals/scene_manager.tscn")
-	add_child(load("res://levels/start_level.tscn").instantiate())
+	add_child(load("res://ui/intro.tscn").instantiate())
 	SignalBus.start_game.connect(on_start_game)
 	SignalBus.egg_broke.connect(on_egg_broke)
 	SignalBus.finish_game.connect(on_game_finished)
@@ -44,3 +45,7 @@ func on_game_restarted() -> void:
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("reset"):
 		on_game_restarted()
+
+
+func _on_introtimer_timeout() -> void:
+	on_game_restarted()

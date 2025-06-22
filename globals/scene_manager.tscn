@@ -4,3 +4,8 @@
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_yq64p")
+
+[node name="introtimer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="introtimer" to="." method="_on_introtimer_timeout"]
