@@ -184,6 +184,7 @@ height = 16.0
 radius = 12.0
 
 [node name="CharacterControllerBody" type="RigidBody2D"]
+mass = 0.495
 physics_material_override = SubResource("PhysicsMaterial_i81ls")
 contact_monitor = true
 max_contacts_reported = 1
@@ -211,9 +212,13 @@ metadata/_custom_type_script = "uid://bmhsu3tnko74x"
 [node name="Egg" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "egg_shape", "egg_sprite", "particle_emitter")]
 script = ExtResource("3_jqtp5")
 character = NodePath("../..")
-egg_shape = NodePath("../../ChimkenCollShape")
+egg_shape = NodePath("../../EggCollShape")
 egg_sprite = NodePath("../../ChimkenSprite")
 particle_emitter = NodePath("../../ChickenParticleEmitter")
+egg_max_speed = 1000
+egg_weight = 0.5
+crack_speed_threshold = 800.0
+jump_strenght = 300.785
 metadata/_custom_type_script = "uid://c2uxhropemok1"
 
 [node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite", "particle_emitter")]
@@ -222,8 +227,11 @@ character = NodePath("../..")
 chimken_shape = NodePath("../../ChimkenCollShape")
 chimken_sprite = NodePath("../../ChimkenSprite")
 particle_emitter = NodePath("../../ChickenParticleEmitter")
-jump_amount = 10
-jump_cooldown = 0.01
+chimken_max_speed = 175
+chimken_weight = 0.5
+jump_amount = 3
+jump_cooldown = 0.015
+jump_strenght = 400.0
 metadata/_custom_type_script = "uid://bd0tonvbr6kkb"
 
 [node name="Shitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("chimken_sprite", "character", "chimken_shape")]

@@ -6,6 +6,10 @@ class_name Chimken
 @export var chimken_sprite: AnimatedSprite2D
 @export var particle_emitter: Node2D
 
+@export var chimken_max_speed: int = 200;
+@export var chimken_weight: float = 200;
+
+
 # for double jump 0 -> no double jump
 @export var jump_amount: int = 1
 var jump_counter: int
@@ -24,6 +28,8 @@ func enter() -> void:
 	chimken_shape.disabled = false
 	character.physics_material_override.friction = 0.1
 	jump_counter = jump_amount
+	$"../..".max_speed = chimken_max_speed
+	$"../..".mass = chimken_weight
 	chimken_sprite.play("chick_idle")
 
 func exit() -> void:
@@ -45,7 +51,8 @@ func physics_update(_delta: float) -> void:
 	
 	# jumping
 	if Input.is_action_just_pressed("jump") and jump_counter > 0 and time > jump_cooldown:
-		character.apply_impulse(Vector2(0.0, -jump_strenght))
+		#character.apply_impulse(Vector2(0.0, -jump_strenght))
+		character.linear_velocity.y = -jump_strenght
 		jump_counter -= 1
 		time = 0.0
 		particle_emitter.emit_feathers()
