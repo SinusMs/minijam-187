@@ -1,19 +1,14 @@
-
-[gd_scene load_steps=12 format=4 uid="uid://c7wl03wr4hbs1"]
-
+[gd_scene load_steps=14 format=4 uid="uid://c7wl03wr4hbs1"]
 
 [ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_vl08x"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_7mpxg"]
 [ext_resource type="PackedScene" uid="uid://c3niqtjo17obs" path="res://levels/tile_map_lvl_hans.tscn" id="2_bdaa4"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_ivlww"]
 [ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="4_bdaa4"]
-[ext_resource type="PackedScene" path="res://levels/parallax_background.tscn" id="5_7mpxg"]
+[ext_resource type="PackedScene" uid="uid://cam1a8ik8cvgj" path="res://levels/parallax_background.tscn" id="5_7mpxg"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="6_ivlww"]
-
 [ext_resource type="Shader" uid="uid://b52x6m8ijaarq" path="res://assets/shaders/color_swap_shader.gdshader" id="7_bdaa4"]
-
 [ext_resource type="PackedScene" uid="uid://de016iersx2t6" path="res://audio/chicken_music.tscn" id="8_ci58w"]
-
 
 [sub_resource type="GDScript" id="GDScript_7mpxg"]
 script/source = "extends Area2D
@@ -82,8 +77,6 @@ player = NodePath("../CharacterControllerBody")
 rotation = 0.261799
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_7mpxg")]
-scale = Vector2(1, 1)
-transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 scroll_base_offset = Vector2(0, 320)
 
 [node name="Area2D" type="Area2D" parent="."]
