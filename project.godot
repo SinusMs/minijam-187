@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Minijam 187"
-run/main_scene="uid://co75ifdpjg1ib"
+run/main_scene="uid://b1qxtwjgvy0lh"
 config/features=PackedStringArray("4.4", "GL Compatibility")
 config/icon="res://icon.svg"
 
