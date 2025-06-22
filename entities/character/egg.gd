@@ -24,6 +24,7 @@ func enter() -> void:
 	speed = initial_speed
 	egg_sprite.play("egg")
 	print("eggus maximus")
+	SignalBus.stop_persuer.emit()
 
 func exit() -> void:
 	egg_shape.disabled = true

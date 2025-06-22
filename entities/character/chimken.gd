@@ -21,6 +21,7 @@ func enter() -> void:
 	character.physics_material_override.friction = 0.1
 	jump_counter = jump_amount
 	chimken_sprite.play("chick_idle")
+	SignalBus.move_persuer.emit()
 
 func exit() -> void:
 	chimken_shape.disabled = true

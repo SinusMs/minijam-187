@@ -1,8 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://byhgdasljvu47"]
+[gd_scene load_steps=6 format=3 uid="uid://dpte2ast7lqrv"]
 
 [ext_resource type="PackedScene" uid="uid://c8us8wbox0v42" path="res://levels/ferdi_level_testink.tscn" id="1_nqv04"]
-[ext_resource type="PackedScene" uid="uid://dr6j4nqebob3m" path="res://muschebubu.tscn" id="2_rh4ky"]
-[ext_resource type="Script" uid="uid://bc1wk3wj8e0dn" path="res://trigger_persuer.gd" id="3_hbs3v"]
+[ext_resource type="PackedScene" uid="uid://c8e0fbvyah8ee" path="res://muschebubu.tscn" id="2_rh4ky"]
+[ext_resource type="Script" path="res://trigger_persuer.gd" id="3_hbs3v"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_32kyp"]
 

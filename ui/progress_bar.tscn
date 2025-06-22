@@ -1,14 +1,9 @@
-[gd_scene load_steps=15 format=3 uid="uid://brvm602igwqwq"]
+[gd_scene load_steps=14 format=3 uid="uid://ujj3cyublon8"]
 
 [ext_resource type="Script" uid="uid://bul8k2cywkbp2" path="res://ui/progress_bar.gd" id="1_gtq4w"]
-
-[ext_resource type="Texture2D" uid="uid://pf5r75lqjuv3" path="res://assets/player/chimkenEgg.png" id="2_4usvg"]
 [ext_resource type="Texture2D" uid="uid://d0pisi6qgkyx8" path="res://assets/slider.png" id="2_5rton"]
 [ext_resource type="Texture2D" uid="uid://b3ilrrgteos1i" path="res://assets/egg_ui_anim.png" id="2_gtq4w"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pn2d2"]
-atlas = ExtResource("2_4usvg")
-region = Rect2(0, 96, 32, 32)
+[ext_resource type="Texture2D" uid="uid://cjjsywn8b3oc5" path="res://assets/persuer_icon.png" id="3_5rton"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gtq4w"]
 atlas = ExtResource("2_gtq4w")
@@ -107,12 +102,16 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="persuer" type="Sprite2D" parent="Panel"]
+position = Vector2(14, 44)
+texture = ExtResource("3_5rton")
+
 [node name="ProgressIcon" type="TextureRect" parent="Panel"]
 self_modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = SubResource("AtlasTexture_pn2d2")
+texture = ExtResource("3_5rton")
 
 [node name="AnimatedUiSprite" type="AnimatedSprite2D" parent="Panel/ProgressIcon"]
 position = Vector2(16, 40)

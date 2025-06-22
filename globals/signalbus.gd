@@ -19,6 +19,12 @@ signal name_entered(name: String)
 ## Move Progress bar to [param progress]%
 signal MoveProgressBar(progress: float); 
 
+signal move_persuer();
+
+signal reset_persuer();
+
+signal stop_persuer();
+
 signal trigger_persuer();
 
 signal survived_persuer();
