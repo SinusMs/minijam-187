@@ -2,9 +2,9 @@ extends Node
 
 const level_path = "res://levels/"
 
-var mini_level: Array = [preload("res://levels/chimken_mini_level1.tscn").instantiate(),
-		preload("res://levels/chimken_mini_level2.tscn").instantiate(),
-		preload("res://levels/chimken_mini_level3.tscn").instantiate()]
+var mini_level: Array = [preload("res://levels/chimken_mini_level1.tscn"),
+		preload("res://levels/chimken_mini_level2.tscn"),
+		preload("res://levels/chimken_mini_level3.tscn")]
 
 func _ready() -> void:
 	#start with level0
@@ -29,12 +29,11 @@ func on_game_finished() -> void:
 
 func on_egg_broke(pos: Vector2) -> void:
 	var rand_mini_level = mini_level[randi_range(0, 2)]
-	if get_node_or_null(rand_mini_level.name) == null:
-		add_child(rand_mini_level)
-	rand_mini_level.global_position = pos
-	if rand_mini_level.has_method("reset"):
-		print("broke")
-		rand_mini_level.reset()
+	var rand_mini_level_scene = rand_mini_level.instantiate()
+	add_child(rand_mini_level_scene)
+	rand_mini_level_scene.global_position = pos
+	if rand_mini_level_scene.has_method("reset"):
+		rand_mini_level_scene.reset()
 	
 func on_game_restarted() -> void:
 	for node in get_children():
