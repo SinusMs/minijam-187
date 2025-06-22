@@ -3,9 +3,9 @@
 [ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_gjl0y"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_5mrsh"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_safpt"]
-[ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="4_gjl0y"]
 [ext_resource type="Texture2D" uid="uid://cpunxoqnhuoyi" path="res://assets/background.png" id="5_gjl0y"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="6_gjl0y"]
+[ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="7_vnv7o"]
 
 [node name="Level" type="Node2D"]
 
@@ -18,8 +18,7 @@ tile_set = ExtResource("1_gjl0y")
 [node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_safpt")]
 player = NodePath("../CharacterControllerBody")
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_gjl0y")]
-visible = false
+[node name="HUD" parent="CharacterCamera" instance=ExtResource("7_vnv7o")]
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 rotation = 0.261799

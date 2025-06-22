@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://bokydwynkrbia"]
+[gd_scene load_steps=32 format=3 uid="uid://bokydwynkrbia"]
 
 [ext_resource type="Script" uid="uid://rpfba4d1fiy7" path="res://entities/character/character_controller.gd" id="1_2peoh"]
 [ext_resource type="Script" uid="uid://bmhsu3tnko74x" path="res://entities/character/state_machine.gd" id="2_5rbde"]
@@ -173,6 +173,10 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ecc8j"]
+radius = 6.0
+height = 16.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybtjf"]
 radius = 12.0
 
@@ -187,11 +191,10 @@ can_shit = true
 
 [node name="ChimkenSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v821y")
-animation = &"chick_jump"
+animation = &"egg"
 
-[node name="EggCollShape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-3, -7, -6, -4, -7, -2, -7, 3, -6, 5, -3, 8, 2, 8, 5, 5, 6, 3, 6, -2, 5, -4, 2, -7)
-disabled = true
+[node name="EggCollShape" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_ecc8j")
 
 [node name="ChimkenCollShape" type="CollisionShape2D" parent="."]
 position = Vector2(1, -2)
@@ -208,7 +211,6 @@ character = NodePath("../..")
 egg_shape = NodePath("../../ChimkenCollShape")
 egg_sprite = NodePath("../../ChimkenSprite")
 particle_emitter = NodePath("../../ChickenParticleEmitter")
-crack_speed_threshold = 2000.0
 metadata/_custom_type_script = "uid://c2uxhropemok1"
 
 [node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite", "particle_emitter")]
