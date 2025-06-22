@@ -1,36 +1,51 @@
-[gd_scene load_steps=6 format=3 uid="uid://eefgqkkekoce"]
+[gd_scene load_steps=7 format=3 uid="uid://eefgqkkekoce"]
 
 [ext_resource type="Script" uid="uid://mdhv4x4j666j" path="res://ui/hud.gd" id="1_rbyyf"]
-[ext_resource type="PackedScene" path="res://ui/enter_name.tscn" id="2_276te"]
-[ext_resource type="PackedScene" path="res://ui/leaderboard.tscn" id="3_546lt"]
-[ext_resource type="PackedScene" path="res://globals/chicken_game_music.tscn" id="4_7ihmi"]
+[ext_resource type="PackedScene" uid="uid://e2wiilhoekjt" path="res://ui/enter_name.tscn" id="2_276te"]
+[ext_resource type="PackedScene" uid="uid://d3m1yw63xmw8i" path="res://ui/leaderboard.tscn" id="3_546lt"]
+[ext_resource type="PackedScene" uid="uid://d1m3go1td7shd" path="res://globals/chicken_game_music.tscn" id="4_7ihmi"]
 [ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="5_en2x2"]
+[ext_resource type="PackedScene" uid="uid://brvm602igwqwq" path="res://ui/progress_bar.tscn" id="6_1v5rv"]
 
 [node name="HUD" type="Control" node_paths=PackedStringArray("stopwatch_label")]
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_rbyyf")
-stopwatch_label = NodePath("StopwatchLabel")
+stopwatch_label = NodePath("VBoxContainer/HBoxContainer/StopwatchLabel")
 shakeFade = 20.0
 
-[node name="StopwatchLabel" type="Label" parent="."]
-layout_mode = 0
-offset_left = 541.0
-offset_top = 24.0
-offset_right = 581.0
-offset_bottom = 47.0
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+offset_right = 64.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="StopwatchLabel" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
 text = "00:00:00"
+
+[node name="SingleIconProgressBar" parent="VBoxContainer/HBoxContainer" instance=ExtResource("6_1v5rv")]
+layout_mode = 2
 
 [node name="EnterName" parent="." instance=ExtResource("2_276te")]
 position = Vector2(514, 235)
 
 [node name="Leaderboard" parent="." instance=ExtResource("3_546lt")]
-offset_left = -83.0
-offset_top = 22.0
-offset_right = -83.0
-offset_bottom = 22.0
+visible = false
+offset_left = 14.0
+offset_top = 29.0
+offset_right = 14.0
+offset_bottom = 29.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("5_en2x2")]
+visible = false
 
 [node name="ChickenGameMusic" parent="." instance=ExtResource("4_7ihmi")]
 autoplay = true
 
-[node name="PauseMenu" parent="." instance=ExtResource("5_en2x2")]
+[node name="GenerationLabel" type="Label" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
