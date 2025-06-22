@@ -1,0 +1,211 @@
+[gd_scene load_steps=10 format=3 uid="uid://c8e0fbvyah8ee"]
+
+[ext_resource type="Shader" uid="uid://wru3oyd7ijh2" path="res://muschebubu.gdshader" id="1_126yu"]
+[ext_resource type="Texture2D" uid="uid://dw1ppg44jg654" path="res://assets/persuer.png" id="1_p6ga2"]
+[ext_resource type="Script" uid="uid://cg6x4ppikxokq" path="res://screen_shader.gd" id="2_p6ga2"]
+[ext_resource type="Texture2D" uid="uid://7pwkiit6qbbe" path="res://assets/f_button_prompt.png" id="5_1sc8n"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_126yu"]
+shader = ExtResource("1_126yu")
+shader_parameter/grrr = 10.0
+
+[sub_resource type="Animation" id="Animation_p6ga2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer:gloomyness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-642, -23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FButtonPrompt:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer:fightable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_rulpf"]
+resource_name = "gefährliche_animation"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer:gloomyness")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.01, 2.01, 2.96667, 4),
+"transitions": PackedFloat32Array(1, 100, 100, 100, 100),
+"update": 0,
+"values": [0.0, 0.5, 1.0, 1.5, 3.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.03333, 2.03333, 3.03333, 4, 4.03333),
+"transitions": PackedFloat32Array(1, 100, 100, 100, 1, 100),
+"update": 0,
+"values": [Vector2(-649, -23), Vector2(-507, -23), Vector2(-340, -23), Vector2(-178, -23), Vector2(-25, -23), Vector2(-30, -23)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Icon:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("FButtonPrompt:modulate")
+tracks/3/interp = 0
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1, 2, 3),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0.341176), Color(1, 1, 1, 0.639216), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer:fightable")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_1sc8n"]
+resource_name = "persuer_fugged"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Icon:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33),
+"transitions": PackedFloat32Array(1, 0.0625),
+"update": 0,
+"values": [Vector2(-25, -23), Vector2(-1079, -508)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Icon:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1sc8n"]
+_data = {
+&"RESET": SubResource("Animation_p6ga2"),
+&"gefährliche_animation": SubResource("Animation_rulpf"),
+&"persuer_fugged": SubResource("Animation_1sc8n")
+}
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(-642, -23)
+scale = Vector2(1.1962, 1.16103)
+texture = ExtResource("1_p6ga2")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("rect", "persuer", "animation_player", "prompt")]
+script = ExtResource("2_p6ga2")
+rect = NodePath("ColorRect")
+persuer = NodePath("../Icon")
+animation_player = NodePath("../AnimationPlayer")
+prompt = NodePath("../FButtonPrompt")
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+material = SubResource("ShaderMaterial_126yu")
+anchors_preset = -1
+anchor_right = 0.994
+anchor_bottom = 1.016
+offset_right = -1105.09
+offset_bottom = -618.368
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_1sc8n")
+}
+
+[node name="FButtonPrompt" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0)
+position = Vector2(0, 200)
+rotation = -0.261799
+scale = Vector2(3, 3)
+texture = ExtResource("5_1sc8n")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="CanvasLayer" method="_on_animation_player_animation_finished"]
