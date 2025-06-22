@@ -19,4 +19,7 @@ func update(_delta: float) -> void:
 		transitioned.emit(self, "shitting")
 
 func physics_update(_delta: float) -> void:
-	pass
+	if Input.is_action_pressed("left"):
+		character.apply_central_force(Vector2(-character.move_speed, 0.0))
+	if Input.is_action_pressed("right"):
+		character.apply_central_force(Vector2(character.move_speed, 0.0))

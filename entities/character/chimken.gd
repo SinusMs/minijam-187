@@ -4,8 +4,7 @@ class_name Chimken
 @export var character: RigidBody2D
 @export var chimken_shape: CollisionPolygon2D
 @export var chimken_sprite: AnimatedSprite2D
-
-@export var move_speed: float = 500.0
+@export var particle_emitter: Node2D
 
 # for double jump 0 -> no double jump
 @export var jump_amount: int = 1
@@ -36,13 +35,15 @@ func update(delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	var current_speed: float = character.linear_velocity.length()
 	
-	chimken_sprite.scale.x = sign(character.linear_velocity.x)
+	if abs(character.linear_velocity.x) > 10.0:
+		chimken_sprite.scale.x = sign(character.linear_velocity.x)
 	
 	# jumping
 	if Input.is_action_just_pressed("jump") and jump_counter > 0 and time > jump_cooldown:
 		character.apply_impulse(Vector2(0.0, -jump_strenght))
 		jump_counter -= 1
 		time = 0.0
+		particle_emitter.emit_feathers()
 		transitioned.emit(self, "jumping")
 	
 	if character.on_floor_currently:
@@ -52,9 +53,9 @@ func physics_update(_delta: float) -> void:
 			chimken_sprite.play("chick_idle")
 	
 	if Input.is_action_pressed("left"):
-		character.apply_central_force(Vector2(-move_speed, 0.0))
+		character.apply_central_force(Vector2(-character.move_speed, 0.0))
 	if Input.is_action_pressed("right"):
-		character.apply_central_force(Vector2(move_speed, 0.0))
+		character.apply_central_force(Vector2(character.move_speed, 0.0))
 	
 	# aufrichten wenn umgefallen
 	var rot: float = character.rotation_degrees

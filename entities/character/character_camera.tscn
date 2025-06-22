@@ -12,10 +12,11 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
-	global_position = player.global_position
+	global_position = player.global_position + Vector2(100.0, 0.0)
 "
 
 [node name="CharacterCamera" type="Camera2D"]
 rotation = -0.261799
 ignore_rotation = false
+zoom = Vector2(2, 2)
 script = SubResource("GDScript_mw11f")
