@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=3 uid="uid://b7j268eje2u0m"]
 
 [ext_resource type="Script" uid="uid://cuqybitx7i2cl" path="res://levels/end_level.gd" id="1_0dpdw"]
-[ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="2_0dpdw"]
+[ext_resource type="PackedScene" uid="uid://cam1a8ik8cvgj" path="res://levels/parallax_background.tscn" id="2_0dpdw"]
 [ext_resource type="Texture2D" uid="uid://cycc38fnyq2e8" path="res://assets/startingEndScreen.png" id="2_y8ap5"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="4_gkaq1"]
 [ext_resource type="Texture2D" uid="uid://bunb77reemrqo" path="res://assets/start_floor.png" id="5_pdi2x"]
@@ -84,6 +84,7 @@ region_rect = Rect2(0, 400, 640, 400)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_0dpdw")]
 scale = Vector2(1, 1)
+transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 
 [node name="floor" type="StaticBody2D" parent="."]
 
