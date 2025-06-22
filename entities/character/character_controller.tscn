@@ -207,7 +207,7 @@ metadata/_custom_type_script = "uid://bmhsu3tnko74x"
 [node name="Egg" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "egg_shape", "egg_sprite", "particle_emitter")]
 script = ExtResource("3_jqtp5")
 character = NodePath("../..")
-egg_shape = NodePath("../../EggCollShape")
+egg_shape = NodePath("../../ChimkenCollShape")
 egg_sprite = NodePath("../../ChimkenSprite")
 particle_emitter = NodePath("../../ChickenParticleEmitter")
 crack_speed_threshold = 2000.0

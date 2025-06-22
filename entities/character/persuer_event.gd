@@ -6,8 +6,7 @@ extends State
 var prev_velocity
 var prev_angular_vel
 var gravity
-var prev_state
-
+var connected = false
 
 # Called when the node enters the scene tree for the first time.
 func enter():
@@ -18,8 +17,10 @@ func enter():
 	prev_angular_vel = character.angular_velocity
 	character.angular_velocity = 0.0
 	
-	SignalBus.unalived.connect(_on_unalived)
-	SignalBus.connect("survived_persuer", _on_survived_persuer)
+	if not connected:
+		SignalBus.unalived.connect(_on_unalived)
+		SignalBus.connect("survived_persuer", _on_survived_persuer)
+		connected = true
 	
 func _on_survived_persuer():
 	character.gravity_scale = gravity

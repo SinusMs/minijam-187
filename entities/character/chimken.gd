@@ -15,8 +15,12 @@ var time = 0.0
 
 @export var jump_strenght = 500.0
 
+var connected = false
+
 func enter() -> void:
-	SignalBus.connect("trigger_persuer", _on_trigger_persuer)
+	if not connected:
+		SignalBus.connect("trigger_persuer", _on_trigger_persuer)
+		connected = true
 	chimken_shape.disabled = false
 	character.physics_material_override.friction = 0.1
 	jump_counter = jump_amount

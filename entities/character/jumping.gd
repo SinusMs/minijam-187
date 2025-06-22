@@ -5,8 +5,13 @@ class_name Jumping
 @export var chimken_sprite: AnimatedSprite2D
 @export var chimken_shape: CollisionShape2D
 
+var connected = false
+
 func enter() -> void:
-	SignalBus.connect("trigger_persuer", _on_trigger_persuer)
+	if not connected:
+		SignalBus.connect("trigger_persuer", _on_trigger_persuer)
+		connected = true
+		
 	chimken_shape.disabled = false
 	chimken_sprite.play("chick_jump")
 	await chimken_sprite.animation_finished
