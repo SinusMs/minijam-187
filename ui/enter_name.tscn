@@ -1,16 +1,26 @@
-[gd_scene load_steps=2 format=3 uid="uid://e2wiilhoekjt"]
+[gd_scene load_steps=3 format=3 uid="uid://e2wiilhoekjt"]
 
 [ext_resource type="Script" uid="uid://cgsw458nrx0ir" path="res://ui/enter_name.gd" id="1_sm8sv"]
+[ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="2_j5rb0"]
 
 [node name="EnterName" type="Node2D"]
 script = ExtResource("1_sm8sv")
 
 [node name="LineEdit" type="LineEdit" parent="."]
-offset_top = 30.0
-offset_right = 133.0
-offset_bottom = 61.0
+offset_left = 45.0
+offset_top = 34.0
+offset_right = 178.0
+offset_bottom = 65.0
+theme_override_colors/font_color = Color(0.835294, 0.235294, 0.415686, 1)
+theme_override_fonts/font = ExtResource("2_j5rb0")
+theme_override_font_sizes/font_size = 25
 
 [node name="Label" type="Label" parent="."]
-offset_right = 69.0
-offset_bottom = 31.0
+offset_left = 6.0
+offset_top = 5.0
+offset_right = 122.0
+offset_bottom = 36.0
+theme_override_colors/font_color = Color(0.235294, 0.835294, 0.654902, 1)
+theme_override_fonts/font = ExtResource("2_j5rb0")
+theme_override_font_sizes/font_size = 30
 text = "Enter your name:"
