@@ -11,10 +11,13 @@ var original_pos: Dictionary = {}
 
 @onready var generation_panel: Panel = $GenerationPanel
 @onready var pickup_panel: Panel = $PickupPanel
+@onready var you_died_panel: Panel = $YouDiedPanel
 
 func _ready() -> void:
+	you_died_panel.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS 
 	SignalBus.egg_broke.connect(shake_hud)
+	SignalBus.unalived.connect(on_unalived)
 	# screenshake init
 	SignalBus.egg_broke.connect(shake_hud)
 	for child in get_children():
@@ -47,5 +50,5 @@ func randomOffset() -> Vector2:
 ########
 
 
-	
-	
+func on_unalived():
+	you_died_panel. visible = true

@@ -19,7 +19,7 @@ func _ready() -> void:
 func on_start_game() -> void:
 	for node in get_children():
 		node.queue_free()
-	call_deferred("add_child", load("res://levels/level2_hans.tscn").instantiate())
+	call_deferred("add_child", load("res://levels/ferdi_level_testink.tscn").instantiate())
 	print("start game")
 
 func on_game_finished() -> void:
@@ -42,4 +42,5 @@ func on_game_restarted() -> void:
 	call_deferred("add_child", load("res://levels/start_level.tscn").instantiate())
 
 func on_unalived():
+	
 	pass
