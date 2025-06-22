@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bvbhcaud3coeg"]
+[gd_scene load_steps=3 format=3 uid="uid://bvbhcaud3coeg"]
+
+[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="1_dnj60"]
+[ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="2_t5qbi"]
 
 [node name="HansTestLevel" type="Node2D"]
+
+[node name="CharacterControllerBody" parent="." instance=ExtResource("1_dnj60")]
+
+[node name="CharacterCamera" parent="." instance=ExtResource("2_t5qbi")]

@@ -18,7 +18,7 @@ void vertex() {
 void fragment() {
 	vec2 iResolution = 1.0 / SCREEN_PIXEL_SIZE;
 	vec2 q = FRAGCOORD.xy / iResolution.xy;
-	
+
 	q = barrel_distort(q);
 	vec3 col = texture(screen_texture, q).rgb;
 	COLOR = vec4(col, 1.0);
