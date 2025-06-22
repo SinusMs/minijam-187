@@ -43,6 +43,7 @@ func update(delta: float) -> void:
 	speed += delta * 50.0
 	if Input.is_action_just_pressed("evolve"):
 		SignalBus.SwapShaderEffect.emit()
+		SignalBus.egg_broke.emit(character.global_position)
 		transitioned.emit(self, "chimken")
 	
 	time += delta
