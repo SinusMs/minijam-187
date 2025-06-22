@@ -1,5 +1,4 @@
 extends Control
-class_name HUD
 
 
 ######### screenshake variables
@@ -35,11 +34,11 @@ func _process(delta: float) -> void:
 				continue
 			child.position = original_pos[child] + randomOffset()
 			
-	$GenerationPanel.text = "Gen: %d" % [Utils.generation]
-	$PickupPanel.text = "%d / %d" % [Utils.current_pickups, Utils.needed_pickups]
+	$GenerationPanel.set_text("Gen: %d" % [Utils.generation])
+	$PickupPanel.set_text("%d / %d" % [Utils.current_pickups, Utils.needed_pickups])
 	
 
-######## screen shake
+####### screen shake
 func shake_hud() -> void:
 	shake_strength = randomShakeStrength
 func randomOffset() -> Vector2:

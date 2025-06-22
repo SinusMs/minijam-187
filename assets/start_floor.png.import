@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn7vheaasdt2s"
-path="res://.godot/imported/logoMitEggo.png-d67fd721329f96db9882f7f1f2021bce.ctex"
+uid="uid://bunb77reemrqo"
+path="res://.godot/imported/start_floor.png-cff7bd69856771cd52a120c264f17240.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/logoMitEggo.png"
-dest_files=["res://.godot/imported/logoMitEggo.png-d67fd721329f96db9882f7f1f2021bce.ctex"]
+source_file="res://assets/start_floor.png"
+dest_files=["res://.godot/imported/start_floor.png-cff7bd69856771cd52a120c264f17240.ctex"]
 
 [params]
 
