@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cg53r8nxf0qsw"]
+[gd_scene load_steps=11 format=4 uid="uid://cg53r8nxf0qsw"]
 
 [ext_resource type="Script" path="res://levels/level_2_hans.gd" id="1_i6h5w"]
 [ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_o0mtb"]
@@ -6,10 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_wrq57"]
 [ext_resource type="PackedScene" uid="uid://ujj3cyublon8" path="res://ui/progress_bar.tscn" id="4_i6h5w"]
 [ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="4_rqpdi"]
-[ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="5_wrq57"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="6_47kis"]
 [ext_resource type="PackedScene" path="res://levels/parallax_background.tscn" id="6_i6h5w"]
-
 [ext_resource type="PackedScene" uid="uid://c8e0fbvyah8ee" path="res://muschebubu.tscn" id="8_wrq57"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrq57"]
@@ -30,7 +28,6 @@ position = Vector2(285, -22)
 scale = Vector2(0.785055, 1.08118)
 player = NodePath("../CharacterControllerBody")
 
-
 [node name="SingleIconProgressBar" parent="CharacterCamera" instance=ExtResource("4_i6h5w")]
 offset_left = -200.025
 offset_top = -149.877
@@ -40,11 +37,11 @@ offset_bottom = -149.877
 [node name="Node2D" parent="CharacterCamera" instance=ExtResource("8_wrq57")]
 rotation = 0.261799
 
+[node name="PauseMenu" parent="." instance=ExtResource("4_rqpdi")]
+visible = false
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_i6h5w")]
-
 scale = Vector2(1, 1)
-
 transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 
 [node name="PickupContainer" type="Node2D" parent="."]

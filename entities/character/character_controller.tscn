@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://bokydwynkrbia"]
+[gd_scene load_steps=33 format=3 uid="uid://bokydwynkrbia"]
 
 [ext_resource type="Script" uid="uid://rpfba4d1fiy7" path="res://entities/character/character_controller.gd" id="1_2peoh"]
 [ext_resource type="Script" uid="uid://bmhsu3tnko74x" path="res://entities/character/state_machine.gd" id="2_5rbde"]

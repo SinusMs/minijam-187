@@ -130,10 +130,10 @@ tracks/4/path = NodePath("CanvasLayer:fightable")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0, 3),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 3, 4),
+"transitions": PackedFloat32Array(1, 1, 1),
 "update": 1,
-"values": [false, true]
+"values": [false, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_1sc8n"]
@@ -174,6 +174,7 @@ _data = {
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-642, -23)
+rotation = -0.261799
 scale = Vector2(1.1962, 1.16103)
 texture = ExtResource("1_p6ga2")
 
@@ -186,15 +187,12 @@ prompt = NodePath("../FButtonPrompt")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 material = SubResource("ShaderMaterial_126yu")
-anchors_preset = -1
-anchor_right = 0.994
-anchor_bottom = 1.016
-offset_right = -1105.09
-offset_bottom = -618.368
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-metadata/_edit_use_anchors_ = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -203,9 +201,11 @@ libraries = {
 
 [node name="FButtonPrompt" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(0, 200)
+position = Vector2(0, 103)
 rotation = -0.261799
-scale = Vector2(3, 3)
+scale = Vector2(3, 2)
 texture = ExtResource("5_1sc8n")
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="CanvasLayer" method="_on_animation_player_animation_finished"]
