@@ -1,0 +1,93 @@
+[gd_scene load_steps=9 format=3 uid="uid://b7j268eje2u0m"]
+
+[ext_resource type="Script" uid="uid://cuqybitx7i2cl" path="res://levels/end_level.gd" id="1_0dpdw"]
+[ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="2_0dpdw"]
+[ext_resource type="Texture2D" uid="uid://cycc38fnyq2e8" path="res://assets/startingEndScreen.png" id="2_y8ap5"]
+[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="4_gkaq1"]
+[ext_resource type="Texture2D" uid="uid://bunb77reemrqo" path="res://assets/start_floor.png" id="5_pdi2x"]
+[ext_resource type="PackedScene" uid="uid://e2wiilhoekjt" path="res://ui/enter_name.tscn" id="5_rlfl5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6n3"]
+size = Vector2(711, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0dpdw"]
+size = Vector2(46, 181)
+
+[node name="EndLevel" type="Node2D"]
+script = ExtResource("1_0dpdw")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("2_0dpdw")]
+transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = -0.261799
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+position = Vector2(1979.05, 480.59)
+rotation = 0.261799
+texture = ExtResource("2_y8ap5")
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(24.5, 193)
+shape = SubResource("RectangleShape2D_sq6n3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="floor"]
+position = Vector2(365.5, 233)
+scale = Vector2(1.066, 1)
+texture = ExtResource("5_pdi2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
+position = Vector2(-111, 233)
+texture = ExtResource("5_pdi2x")
+
+[node name="wall_left" type="StaticBody2D" parent="."]
+position = Vector2(-137, -263)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left"]
+position = Vector2(24.5, 193)
+shape = SubResource("RectangleShape2D_sq6n3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="wall_left"]
+position = Vector2(365.5, 233)
+scale = Vector2(1.066, 1)
+texture = ExtResource("5_pdi2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="wall_left"]
+position = Vector2(-111, 233)
+texture = ExtResource("5_pdi2x")
+
+[node name="wall_right" type="StaticBody2D" parent="."]
+position = Vector2(137, 66)
+rotation = 4.71239
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_right"]
+position = Vector2(24.5, 193)
+shape = SubResource("RectangleShape2D_sq6n3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="wall_right"]
+position = Vector2(365.5, 233)
+scale = Vector2(1.066, 1)
+texture = ExtResource("5_pdi2x")
+
+[node name="Sprite2D" type="Sprite2D" parent="wall_right"]
+position = Vector2(-111, 233)
+texture = ExtResource("5_pdi2x")
+
+[node name="CharacterControllerBody" parent="." instance=ExtResource("4_gkaq1")]
+position = Vector2(-295, 155)
+
+[node name="death_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="death_area"]
+position = Vector2(1, 90.5)
+shape = SubResource("RectangleShape2D_0dpdw")
+
+[node name="EnterName" parent="." instance=ExtResource("5_rlfl5")]
+visible = false
+position = Vector2(-104, -47)
+
+[connection signal="body_entered" from="death_area" to="." method="_on_death_area_body_entered"]

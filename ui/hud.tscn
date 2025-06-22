@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=3 uid="uid://eefgqkkekoce"]
+[gd_scene load_steps=8 format=3 uid="uid://eefgqkkekoce"]
 
 [ext_resource type="Script" uid="uid://mdhv4x4j666j" path="res://ui/hud.gd" id="1_rbyyf"]
-[ext_resource type="PackedScene" uid="uid://e2wiilhoekjt" path="res://ui/enter_name.tscn" id="2_276te"]
 [ext_resource type="PackedScene" uid="uid://d3m1yw63xmw8i" path="res://ui/leaderboard.tscn" id="3_546lt"]
 [ext_resource type="PackedScene" uid="uid://dfmc140gu4l1k" path="res://globals/chicken_game_music.tscn" id="4_7ihmi"]
 [ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="5_en2x2"]
@@ -11,7 +10,11 @@
 
 [node name="HUD" type="Control"]
 layout_mode = 3
-anchors_preset = 0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_rbyyf")
 shakeFade = 20.0
 
@@ -29,10 +32,6 @@ offset_top = 14.0
 offset_right = 334.0
 offset_bottom = 37.0
 size_flags_horizontal = 4
-
-[node name="EnterName" parent="." instance=ExtResource("2_276te")]
-visible = false
-position = Vector2(514, 235)
 
 [node name="Leaderboard" parent="." instance=ExtResource("3_546lt")]
 visible = false
@@ -60,3 +59,4 @@ offset_left = 23.0
 offset_top = 9.0
 offset_right = 133.0
 offset_bottom = 51.0
+text = "dsadfgasdfasda"

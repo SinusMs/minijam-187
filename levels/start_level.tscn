@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="1_wiq57"]
 [ext_resource type="Texture2D" uid="uid://boeibd8hq2kjl" path="res://assets/startingScreen.png" id="2_ii2ba"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="3_csg43"]
-[ext_resource type="Texture2D" uid="uid://bbfljvcml48vc" path="res://assets/start_floor.png" id="4_2pqlg"]
+[ext_resource type="Texture2D" uid="uid://bunb77reemrqo" path="res://assets/start_floor.png" id="4_2pqlg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6n3"]
 size = Vector2(711, 20)

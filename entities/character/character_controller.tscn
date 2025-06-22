@@ -205,7 +205,7 @@ metadata/_custom_type_script = "uid://bmhsu3tnko74x"
 [node name="Egg" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "egg_shape", "egg_sprite", "particle_emitter")]
 script = ExtResource("3_jqtp5")
 character = NodePath("../..")
-egg_shape = NodePath("../../EggCollShape")
+egg_shape = NodePath("../../ChimkenCollShape")
 egg_sprite = NodePath("../../ChimkenSprite")
 particle_emitter = NodePath("../../ChickenParticleEmitter")
 crack_speed_threshold = 2000.0
@@ -221,12 +221,6 @@ jump_amount = 10
 jump_cooldown = 0.01
 metadata/_custom_type_script = "uid://bd0tonvbr6kkb"
 
-[node name="Cracking" type="Node" parent="StateMachine" node_paths=PackedStringArray("egg_sprite", "character", "chimken_shape")]
-script = ExtResource("6_cjobk")
-egg_sprite = NodePath("../../ChimkenSprite")
-character = NodePath("../..")
-chimken_shape = NodePath("../../ChimkenCollShape")
-
 [node name="Shitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("chimken_sprite", "character", "chimken_shape")]
 script = ExtResource("7_ybtjf")
 chimken_sprite = NodePath("../../ChimkenSprite")
@@ -240,5 +234,12 @@ character = NodePath("../..")
 chimken_sprite = NodePath("../../ChimkenSprite")
 chimken_shape = NodePath("../../ChimkenCollShape")
 metadata/_custom_type_script = "uid://c6yiuqx2hiq21"
+
+[node name="Cracking" type="Node" parent="StateMachine" node_paths=PackedStringArray("egg_sprite", "character", "chimken_shape")]
+script = ExtResource("6_cjobk")
+egg_sprite = NodePath("../../ChimkenSprite")
+character = NodePath("../..")
+chimken_shape = NodePath("../../ChimkenCollShape")
+metadata/_custom_type_script = "uid://bpqig4m2x7qas"
 
 [node name="ChickenParticleEmitter" parent="." instance=ExtResource("9_ybtjf")]
