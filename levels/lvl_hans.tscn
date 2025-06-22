@@ -1,22 +1,17 @@
+
 [gd_scene load_steps=6 format=3 uid="uid://ci6pktwwqi5ln"]
 
 [ext_resource type="PackedScene" uid="uid://wgws7w1fiahc" path="res://levels/tile_map_lvl_hans.tscn" id="1_dcpb1"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="2_dcpb1"]
 [ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="3_vx77j"]
+
+[ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_x027o"]
+
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="4_yxttg"]
-[ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="5_dcpb1"]
 
 [node name="LvlHans" type="Node2D"]
 
 [node name="TileMapLayer" parent="." instance=ExtResource("1_dcpb1")]
-
-[node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_dcpb1")]
-player = NodePath("../CharacterControllerBody")
-
-[node name="HUD" parent="CharacterCamera" instance=ExtResource("3_vx77j")]
-visible = false
-randomShakeStrength = 60.0
-shakeFade = 5.0
 
 [node name="CharacterControllerBody" parent="." instance=ExtResource("4_yxttg")]
 position = Vector2(68, -37)
@@ -25,3 +20,4 @@ rotation = -0.261799
 [node name="ParallaxBackground" parent="." instance=ExtResource("5_dcpb1")]
 visible = false
 transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
+
