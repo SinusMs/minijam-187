@@ -2,8 +2,9 @@ extends State
 class_name Egg
 
 @export var character: RigidBody2D
-@export var egg_shape: CollisionPolygon2D
+@export var egg_shape: CollisionShape2D
 @export var egg_sprite: AnimatedSprite2D
+@export var particle_emitter: Node2D
 
 @export var initial_speed: float = 300.0
 var speed: float
@@ -41,6 +42,7 @@ func physics_update(_delta: float) -> void:
 	character.apply_force(Vector2(speed, 0.0))
 	var current_speed: float = character.linear_velocity.length() 
 	if prev_speed - current_speed > crack_speed_threshold:
+		particle_emitter.emit_egg_shells()
 		transitioned.emit(self, "cracking")
 	prev_speed = current_speed
 	

@@ -16,6 +16,7 @@ func _ready():
 	progress_start = $Panel/ProgressIcon.position.x;
 	progress_end = progress_start + $Panel.size.x - $Panel/ProgressIcon.size.x;
 	SignalBus.MoveProgressBar.connect(move_chicken_icon);
+	$Panel/ProgressIcon/AnimatedUiSprite.animation
 
 func _process(delta):
 	# Debugging

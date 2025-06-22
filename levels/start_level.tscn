@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://b31ylaa65kopb"]
+
+[ext_resource type="Script" uid="uid://bh10yb4tkfe1v" path="res://levels/start_level.gd" id="1_sq6n3"]
+[ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="1_wiq57"]
+[ext_resource type="Texture2D" uid="uid://burt07qgdx74j" path="res://assets/startingScreen.png" id="2_ii2ba"]
+[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="3_csg43"]
+[ext_resource type="Texture2D" uid="uid://6len8kjadni4" path="res://assets/start_floor.png" id="4_2pqlg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6n3"]
+size = Vector2(711, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2pqlg"]
+size = Vector2(20, 301.5)
+
+[node name="StartLevel" type="Node2D"]
+script = ExtResource("1_sq6n3")
+
+[node name="ParallaxBackground" parent="." instance=ExtResource("1_wiq57")]
+scale = Vector2(1, 1)
+transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+rotation = -0.261799
+zoom = Vector2(2, 2)
+
+[node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
+rotation = 0.261799
+scale = Vector2(1, 1)
+texture = ExtResource("2_ii2ba")
+
+[node name="CharacterControllerBody" parent="." instance=ExtResource("3_csg43")]
+position = Vector2(-56, 170)
+
+[node name="floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
+position = Vector2(24.5, 193)
+shape = SubResource("RectangleShape2D_sq6n3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="floor"]
+position = Vector2(365.5, 233)
+scale = Vector2(1.066, 1)
+texture = ExtResource("4_2pqlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="floor"]
+position = Vector2(-111, 233)
+texture = ExtResource("4_2pqlg")
+
+[node name="wall_left" type="Area2D" parent="."]
+position = Vector2(-137, -263)
+rotation = 1.5708
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left"]
+position = Vector2(24.5, 193)
+shape = SubResource("RectangleShape2D_sq6n3")
+
+[node name="Sprite2D2" type="Sprite2D" parent="wall_left"]
+position = Vector2(365.5, 233)
+scale = Vector2(1.066, 1)
+texture = ExtResource("4_2pqlg")
+
+[node name="Sprite2D" type="Sprite2D" parent="wall_left"]
+position = Vector2(-111, 233)
+texture = ExtResource("4_2pqlg")
+
+[node name="start_game" type="Area2D" parent="."]
+
+[node name="Collisionshape2D" type="CollisionShape2D" parent="start_game"]
+position = Vector2(330, 76)
+shape = SubResource("RectangleShape2D_2pqlg")
+
+[connection signal="body_entered" from="start_game" to="." method="_on_start_game_body_entered"]

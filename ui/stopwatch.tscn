@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://kva23e0islsy"]
+[gd_scene load_steps=3 format=3 uid="uid://kva23e0islsy"]
 
 [ext_resource type="Script" uid="uid://ddarmiw6nfcor" path="res://ui/stopwatch.gd" id="1_jewno"]
+[ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="1_msaew"]
 
-[node name="Stopwatch" type="Node"]
+[node name="Stopwatch" type="Label"]
+theme_override_colors/font_color = Color(0.235294, 0.835294, 0.654902, 1)
+theme_override_colors/font_outline_color = Color(0.00784314, 0.0745098, 0.0509804, 1)
+theme_override_fonts/font = ExtResource("1_msaew")
+theme_override_font_sizes/font_size = 30
 script = ExtResource("1_jewno")

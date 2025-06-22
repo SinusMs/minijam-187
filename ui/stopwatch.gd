@@ -1,4 +1,4 @@
-extends Node
+extends Label
 class_name Stopwatch
 
 var time = 0.0
@@ -13,6 +13,8 @@ func _process(delta: float) -> void:
 		return
 	time += delta
 	
+	text = time_to_string()
+	
 func reset() -> void:
 	time = 0.0
 	
@@ -25,7 +27,7 @@ func resume() -> void:
 func get_time() -> float:
 	return time
 	
-func timo_to_string() -> String:
+func time_to_string() -> String:
 	# format time as cool string (00 : 00 : 00)
 	var msec = fmod(time, 1) * 1000
 	var sec = fmod(time, 60)
