@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://b554hksx6qxt3"]
+
+[ext_resource type="Texture2D" uid="uid://cmeaxtx7o8xru" path="res://assets/particles/eggShell.png" id="1_c17fa"]
+[ext_resource type="Texture2D" uid="uid://6i5vmbk7n35h" path="res://assets/particles/feather.png" id="2_a3y42"]
+
+[sub_resource type="GDScript" id="GDScript_hwp0t"]
+script/source = "extends Node2D
+
+signal EmitAll
+
+func _ready() -> void:
+	EmitAll.connect(Emit)
+
+func Emit():
+	for child in get_children():
+		if child is CPUParticles2D:
+			child.emitting = true
+"
+
+[sub_resource type="Gradient" id="Gradient_hjmbq"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="Gradient" id="Gradient_ccm1u"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0)
+
+[node name="ChickenParticleEmitter" type="Node2D"]
+script = SubResource("GDScript_hwp0t")
+
+[node name="Egg Emitter" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = ExtResource("1_c17fa")
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -10)
+spread = 35.0
+initial_velocity_min = 300.0
+initial_velocity_max = 300.0
+angular_velocity_min = -90.0
+angular_velocity_max = 90.0
+angle_min = -720.0
+angle_max = 720.0
+color_ramp = SubResource("Gradient_hjmbq")
+
+[node name="Feather Emitter" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 20
+texture = ExtResource("2_a3y42")
+lifetime = 0.4
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -10)
+gravity = Vector2(0, 300)
+initial_velocity_min = 160.0
+initial_velocity_max = 160.0
+angular_velocity_min = -50.0
+angular_velocity_max = 50.0
+color_ramp = SubResource("Gradient_ccm1u")
