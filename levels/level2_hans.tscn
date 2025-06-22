@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=4 uid="uid://ceswslvkccpxd"]
+[gd_scene load_steps=9 format=4 uid="uid://b2byk5a7qf7vc"]
 
 [ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_o0mtb"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_i6h5w"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_wrq57"]
+[ext_resource type="PackedScene" uid="uid://ujj3cyublon8" path="res://ui/progress_bar.tscn" id="4_i6h5w"]
 [ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="4_rqpdi"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="6_47kis"]
-[ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="6_i6h5w"]
+[ext_resource type="PackedScene" path="res://levels/parallax_background.tscn" id="6_i6h5w"]
+[ext_resource type="PackedScene" uid="uid://c8e0fbvyah8ee" path="res://muschebubu.tscn" id="8_wrq57"]
 
 [node name="Level" type="Node2D"]
 
@@ -14,15 +16,26 @@ tile_map_data = PackedByteArray("AAAAAAIAAAAPAAEAAAADAAEAAAAKAAAAAAABAAIAAAAFAAA
 tile_set = ExtResource("1_o0mtb")
 
 [node name="CharacterControllerBody" parent="." instance=ExtResource("2_i6h5w")]
+position = Vector2(285, -22)
 
 [node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_wrq57")]
+scale = Vector2(0.785055, 1.08118)
 player = NodePath("../CharacterControllerBody")
+
+[node name="SingleIconProgressBar" parent="CharacterCamera" instance=ExtResource("4_i6h5w")]
+offset_left = -200.025
+offset_top = -149.877
+offset_right = -200.025
+offset_bottom = -149.877
+
+[node name="Node2D" parent="CharacterCamera" instance=ExtResource("8_wrq57")]
+rotation = 0.261799
 
 [node name="PauseMenu" parent="." instance=ExtResource("4_rqpdi")]
 visible = false
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_i6h5w")]
-scale = Vector2(1, 1)
+transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 
 [node name="PickupContainer" type="Node2D" parent="."]
 

@@ -7,6 +7,7 @@ func _ready() -> void:
 	get_tree().change_scene_to_file("res://globals/scene_manager.tscn")
 	add_child(load("res://levels/start_level.tscn").instantiate())
 	SignalBus.start_game.connect(on_start_game)
+	SignalBus.unalived.connect(on_unalived)
 	#SignalBus.finish_game.connect(on_game_finished)
 	#SignalBus.finish_game.connect(on_game_restarted)
 	
@@ -22,4 +23,7 @@ func _on_game_finished() -> void:
 	pass
 	
 func _on_game_restarted() -> void:
+	pass
+
+func on_unalived():
 	pass
