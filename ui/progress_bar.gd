@@ -15,7 +15,7 @@ var time_total: float = 0.0; # testing var
 var move_persuer: bool = false
 
 ## how long the persuer needs to reach the chicken
-var persuer_speed: float = 5.0
+var persuer_speed: float = 20.0
 
 ## time the persuer has been chasing since last time
 var persuer_dtime: float = 0.0
@@ -47,7 +47,6 @@ func _process(delta):
 	# time based Testing
 	if move_persuer:
 		persuer_dtime += delta
-		print(persuer_dtime)
 
 
 ## Moves the UI Progress Icon to [param progress]% [br]

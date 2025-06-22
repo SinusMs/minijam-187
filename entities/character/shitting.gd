@@ -7,6 +7,7 @@ class_name Shitting
 
 func enter() -> void:
 	$"../../Shit_SFX".play()
+	Utils.current_pickups = 0
 	chimken_shape.disabled = false
 	chimken_sprite.play("shit")
 	var tween = get_tree().create_tween()
