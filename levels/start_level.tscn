@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="3_csg43"]
 [ext_resource type="Texture2D" uid="uid://cycc38fnyq2e8" path="res://assets/startingEndScreen.png" id="3_sq6n3"]
 [ext_resource type="Texture2D" uid="uid://bunb77reemrqo" path="res://assets/start_floor.png" id="4_2pqlg"]
-[ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="4_8yjd7"]
 [ext_resource type="PackedScene" uid="uid://6npcm6iuds5r" path="res://audio/chick_sfx.tscn" id="6_sq6n3"]
+[ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="7_8yjd7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6n3"]
 size = Vector2(785.001, 20)
@@ -29,8 +29,6 @@ region_rect = Rect2(0, 0, 640, 400)
 [node name="Camera2D" type="Camera2D" parent="."]
 rotation = -0.261799
 zoom = Vector2(2, 2)
-
-[node name="HUD" parent="Camera2D" instance=ExtResource("4_8yjd7")]
 
 [node name="CharacterControllerBody" parent="." instance=ExtResource("3_csg43")]
 position = Vector2(-56, 170)
@@ -144,5 +142,7 @@ frequency = 5.0
 [node name="AudioStreamPlayer2D18" parent="FarmSounds" instance=ExtResource("6_sq6n3")]
 farm_mode = true
 frequency = 5.0
+
+[node name="PauseMenu" parent="." instance=ExtResource("7_8yjd7")]
 
 [connection signal="body_entered" from="start_game" to="." method="_on_start_game_body_entered"]

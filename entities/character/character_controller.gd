@@ -20,6 +20,7 @@ var shit_amount: int
 
 func  _ready() -> void:
 	shit_amount = initial_shit_amount
+	Utils.needed_pickups = initial_shit_amount
 	SignalBus.pickup_picked.connect(_on_pickup)
 	for child in get_parent().get_children():
 		if child.name == "LevelEnd":
@@ -29,11 +30,9 @@ func  _ready() -> void:
 			start_coord_x = child.position.x
 			print("START")
 
-			
-			
 func _process(delta: float) -> void:
 	updateProgressbar();
-			
+
 func updateProgressbar() -> void:
 	var current_position_x = position.x;
 	var first: int = current_position_x - start_coord_x;
@@ -64,5 +63,6 @@ func _physics_process(delta: float) -> void:
 func _on_pickup(type: Pickup) -> void:
 	if type is NougatBits:
 		shit_amount -= 1
+		Utils.current_pickups += 1
 		if shit_amount <= 0:
 			can_shit = true

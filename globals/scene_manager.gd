@@ -14,7 +14,6 @@ func _ready() -> void:
 	SignalBus.egg_broke.connect(on_egg_broke)
 	SignalBus.finish_game.connect(on_game_finished)
 	SignalBus.restart_game.connect(on_game_restarted)
-	SignalBus.unalived.connect(on_unalived)
 
 func on_start_game() -> void:
 	for node in get_children():
@@ -42,6 +41,6 @@ func on_game_restarted() -> void:
 	print("restart")
 	call_deferred("add_child", load("res://levels/start_level.tscn").instantiate())
 
-func on_unalived():
-	
-	pass
+func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("reset"):
+		on_game_restarted()
