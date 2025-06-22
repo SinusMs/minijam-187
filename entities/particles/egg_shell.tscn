@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbdgor0mkgsx8"]
+
+[ext_resource type="Texture2D" uid="uid://cmeaxtx7o8xru" path="res://assets/particles/eggShell.png" id="1_ogtxo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tb8wo"]
+radius = 2.0
+
+[node name="EggShell" type="RigidBody2D"]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_tb8wo")
+
+[node name="EggShell" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ogtxo")

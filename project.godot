@@ -25,6 +25,12 @@ Utils="*res://globals/utils.gd"
 SceneManager="*res://globals/scene_manager.gd"
 SignalBus="*res://globals/signalbus.gd"
 
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=800
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="Ludum Dare 57"

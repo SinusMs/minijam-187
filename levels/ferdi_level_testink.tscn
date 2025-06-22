@@ -181,7 +181,6 @@ texture = SubResource("NoiseTexture2D_7tovp")
 position = Vector2(0, -152)
 
 [node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_luqth")]
-zoom = Vector2(2, 2)
 player = NodePath("../CharacterController")
 
 [node name="HUD" parent="CharacterCamera" instance=ExtResource("5_onqc0")]

@@ -3,6 +3,8 @@ extends RigidBody2D
 var on_floor_currently: bool = false
 var on_floor: bool = false
 
+@export var move_speed: float = 500.0
+
 @export var floor_margin: float = 0.3
 var time = 0.0
 

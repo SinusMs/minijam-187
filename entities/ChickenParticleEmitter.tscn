@@ -8,6 +8,9 @@ script/source = "extends Node2D
 
 signal EmitAll
 
+@export var shell: PackedScene = preload(\"res://entities/particles/egg_shell.tscn\")
+@export var feather: PackedScene = preload(\"res://entities/particles/feather.tscn\")
+
 func _ready() -> void:
 	EmitAll.connect(Emit)
 
@@ -15,6 +18,20 @@ func Emit():
 	for child in get_children():
 		if child is CPUParticles2D:
 			child.emitting = true
+
+func emit_feathers() -> void:
+	var feather_scene: RigidBody2D = feather.instantiate()
+	get_tree().root.get_child(0).add_child(feather_scene)
+	feather_scene.global_position = global_position
+	feather_scene.apply_impulse(Vector2(randf_range(-100.0, 100.0), randf_range(-100.0, 100.0)))
+	$\"Feather Emitter\".emitting = true
+
+func emit_egg_shells() -> void:
+	var shell_scene: RigidBody2D = shell.instantiate()
+	get_tree().root.get_child(0).add_child(shell_scene)
+	shell_scene.global_position = global_position
+	shell_scene.apply_impulse(Vector2(randf_range(-100.0, 100.0), randf_range(-100.0, 100.0)))
+	$\"Egg Emitter\".emitting = true
 "
 
 [sub_resource type="Gradient" id="Gradient_hjmbq"]
