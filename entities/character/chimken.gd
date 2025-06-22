@@ -27,7 +27,7 @@ func exit() -> void:
 	character.rotation_degrees = 0.0
 
 func update(delta: float) -> void:
-	if Input.is_action_just_pressed("evolve"):
+	if Input.is_action_just_pressed("evolve") and character.can_shit == true:
 		transitioned.emit(self, "shitting")
 	if character.on_floor:
 		jump_counter = jump_amount

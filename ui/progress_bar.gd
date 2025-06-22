@@ -13,8 +13,8 @@ var time_total: float = 0.0; # testing var
 
 func _ready():
 	# Setup progress bar start and end
-	progress_start = $"CanvasLayer/Panel/ProgressIcon".position.x;
-	progress_end = progress_start + $"CanvasLayer/Panel".size.x - $CanvasLayer/Panel/ProgressIcon.size.x;
+	progress_start = $Panel/ProgressIcon.position.x;
+	progress_end = progress_start + $Panel.size.x - $Panel/ProgressIcon.size.x;
 	SignalBus.MoveProgressBar.connect(move_chicken_icon);
 
 func _process(delta):
@@ -31,5 +31,5 @@ func _process(delta):
 ## Sets [member progress_current] to [param progress]
 func move_chicken_icon(progress: float) -> void:
 	progress_current = progress;
-	$"CanvasLayer/Panel/ProgressIcon".position.x = progress_current;
+	$Panel/ProgressIcon.position.x = progress_current;
 	pass

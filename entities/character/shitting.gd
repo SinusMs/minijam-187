@@ -15,6 +15,8 @@ func enter() -> void:
 	transitioned.emit(self, "egg")
 
 func exit() -> void:
+	character.can_shit = false
+	character.shit_amount = character.initial_shit_amount
 	chimken_shape.disabled = true
 
 func update(_delta: float) -> void:

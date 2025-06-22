@@ -1,0 +1,70 @@
+[gd_scene load_steps=12 format=3 uid="uid://dm1u6whgit33u"]
+
+[ext_resource type="PackedScene" uid="uid://drijtvq1ycw5o" path="res://entities/pickups/pickup.tscn" id="1_736wk"]
+[ext_resource type="Script" uid="uid://o85j21iujaad" path="res://entities/pickups/nougat_bits.gd" id="2_6c8tu"]
+[ext_resource type="Texture2D" uid="uid://bh6i40sxj2lfy" path="res://assets/pickups/nougatbit-Sheet.png" id="2_16qeo"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_16qeo"]
+atlas = ExtResource("2_16qeo")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6c8tu"]
+atlas = ExtResource("2_16qeo")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hvbuy"]
+atlas = ExtResource("2_16qeo")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e6ykk"]
+atlas = ExtResource("2_16qeo")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_acip2"]
+atlas = ExtResource("2_16qeo")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdge8"]
+atlas = ExtResource("2_16qeo")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dg75g"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_16qeo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6c8tu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hvbuy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e6ykk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_acip2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdge8")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eiapt"]
+size = Vector2(12, 16)
+
+[node name="NougatBits" instance=ExtResource("1_736wk")]
+script = ExtResource("2_6c8tu")
+
+[node name="Sprite2D" parent="." index="0"]
+sprite_frames = SubResource("SpriteFrames_dg75g")
+autoplay = "default"
+frame_progress = 0.985466
+
+[node name="CollisionShape2D" parent="." index="1"]
+position = Vector2(1, -2)
+shape = SubResource("RectangleShape2D_eiapt")
