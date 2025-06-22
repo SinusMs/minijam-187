@@ -1,0 +1,21 @@
+[gd_scene load_steps=5 format=4 uid="uid://ci6pktwwqi5ln"]
+
+[ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_x027o"]
+[ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="2_dcpb1"]
+[ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="3_vx77j"]
+[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="4_yxttg"]
+
+[node name="LvlHans" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAADAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAFAAAAAAAAAAAAAAAGAAAAAAAAAAAAAAAHAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAJAAAAAAAAAAAAAAAKAAAAAAAAAAAAAAALAAAAAAAIAAEAAAAMAAAAAAAJAAEAAAANAAAAAAAIAAEAAAAOAAAAAAAJAAEAAAAPAAAAAAAIAAEAAAAQAAAAAAAJAAEAAAARAAAAAAAIAAEAAAASAAAAAAAJAAEAAAATAAAAAAAIAAEAAAAUAAAAAAAJAAEAAAAVAAAAAAAIAAEAAAAWAAAAAAAJAAEAAAAXAAAAAAAIAAEAAAAYAAAAAAAJAAEAAAAZAAAAAAAIAAEAAAAaAAAAAAAJAAEAAAAbAAAAAAAIAAEAAAAcAAAAAAAJAAEAAAAdAAAAAAAMAAEAAAAeAAAAAAANAAEAAAAfAAEAAAAKAAEAAAAgAAIAAAAMAAEAAAAhAAIAAAANAAEAAAAiAAMAAAAKAAEAAAAjAAQAAAAMAAEAAAAkAAQAAAANAAEAAAAlAAUAAAAKAAEAAAAmAAYAAAAMAAEAAAAnAAYAAAANAAEAAAAoAAcAAAAKAAEAAAApAAgAAAAMAAEAAAAqAAgAAAANAAEAAAArAAkAAAAKAAEAAAA=")
+tile_set = ExtResource("1_x027o")
+
+[node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_dcpb1")]
+player = NodePath("../CharacterControllerBody")
+
+[node name="HUD" parent="CharacterCamera" instance=ExtResource("3_vx77j")]
+
+[node name="CharacterControllerBody" parent="." instance=ExtResource("4_yxttg")]
+position = Vector2(68, -37)
+rotation = -0.261799
