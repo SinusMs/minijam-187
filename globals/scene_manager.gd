@@ -11,11 +11,13 @@ func _ready() -> void:
 	#get_tree().change_scene_to_file("res://globals/scene_manager.tscn")
 	add_child(load("res://levels/start_level.tscn").instantiate())
 	SignalBus.start_game.connect(on_start_game)
+	SignalBus.unalived.connect(on_unalived)
 
 	
 	#SignalBus.restart_game.connect(on_game_restarted)
 
 	SignalBus.egg_broke.connect(on_egg_broke)
+
 	#SignalBus.finish_game.connect(on_game_finished)
 	#SignalBus.restart_game.connect(on_game_restarted)
 
@@ -47,4 +49,7 @@ func on_egg_broke(pos: Vector2) -> void:
 
 	
 func _on_game_restarted() -> void:
+	pass
+
+func on_unalived():
 	pass

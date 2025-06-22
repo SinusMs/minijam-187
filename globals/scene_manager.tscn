@@ -1,6 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1qxtwjgvy0lh"]
+[gd_scene load_steps=3 format=3 uid="uid://c3ybv0k05cgqu"]
 
 [ext_resource type="Script" uid="uid://co75ifdpjg1ib" path="res://globals/scene_manager.gd" id="1_yq64p"]
+[ext_resource type="PackedScene" uid="uid://ujj3cyublon8" path="res://ui/progress_bar.tscn" id="2_b01v5"]
 
 [node name="SceneManager" type="Node"]
 script = ExtResource("1_yq64p")
+
+[node name="SingleIconProgressBar" parent="." instance=ExtResource("2_b01v5")]
+offset_left = 99.0
+offset_top = 456.0
+offset_right = 99.0
+offset_bottom = 456.0

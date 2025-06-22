@@ -15,11 +15,17 @@ var time = 0.0
 
 @export var jump_strenght = 500.0
 
+var connected = false
+
 func enter() -> void:
+	if not connected:
+		SignalBus.connect("trigger_persuer", _on_trigger_persuer)
+		connected = true
 	chimken_shape.disabled = false
 	character.physics_material_override.friction = 0.1
 	jump_counter = jump_amount
 	chimken_sprite.play("chick_idle")
+	SignalBus.move_persuer.emit()
 
 func exit() -> void:
 	chimken_shape.disabled = true
@@ -61,3 +67,7 @@ func physics_update(_delta: float) -> void:
 	var rot: float = character.rotation_degrees
 	if rot < -10 or rot > 10:
 		character.apply_force(Vector2(rot * 0.8, 0.0), Vector2(0.0, 1000.0))
+
+func _on_trigger_persuer():
+	print("grr")
+	transitioned.emit(self, "persuerevent")
