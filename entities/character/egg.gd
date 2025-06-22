@@ -19,7 +19,6 @@ var time = 0.0
 
 func enter() -> void:
 	egg_shape.disabled = false
-	character.physics_material_override.friction = 1.0
 	speed = initial_speed
 	egg_sprite.play("egg")
 	print("eggus maximus")
