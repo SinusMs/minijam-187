@@ -2,7 +2,7 @@ extends State
 class_name Egg
 
 @export var character: RigidBody2D
-@export var egg_shape: CollisionPolygon2D
+@export var egg_shape: CollisionShape2D
 @export var egg_sprite: AnimatedSprite2D
 @export var particle_emitter: Node2D
 

@@ -3,7 +3,7 @@ class_name Cracking
 
 @export var egg_sprite: AnimatedSprite2D
 @export var character: RigidBody2D
-@export var chimken_shape: CollisionPolygon2D
+@export var chimken_shape: CollisionShape2D
 
 func enter() -> void:
 	chimken_shape.disabled = false
