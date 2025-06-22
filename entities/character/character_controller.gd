@@ -8,6 +8,8 @@ var start_coord_x: int;
 var end_coord_x: int;
 
 @export var move_speed: float = 500.0
+var max_speed: float = 500.0
+var weight: float = 500.0
 
 @export var floor_margin: float = 0.3
 var time = 0.0
@@ -55,6 +57,9 @@ func _physics_process(delta: float) -> void:
 		time = 0.0
 	else:
 		time += delta
+		
+	if abs(linear_velocity.x) > max_speed:
+		linear_velocity.x = max_speed * sign(linear_velocity.x)
 
 func _on_pickup(type: Pickup) -> void:
 	if type is NougatBits:

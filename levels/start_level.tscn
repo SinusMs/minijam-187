@@ -17,7 +17,9 @@ size = Vector2(20, 301.5)
 script = ExtResource("1_sq6n3")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_wiq57")]
+
 scale = Vector2(1, 1)
+
 transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
