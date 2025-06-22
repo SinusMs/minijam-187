@@ -194,6 +194,7 @@ contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_2peoh")
 move_speed = 400.0
+floor_margin = 0.6
 initial_shit_amount = 0
 can_shit = true
 

@@ -14,6 +14,7 @@ func enter() -> void:
 	await egg_sprite.animation_finished
 	transitioned.emit(self, "chimken")
 	SignalBus.move_persuer.emit()
+	SignalBus.SwapShaderEffect.emit()
 
 func exit() -> void:
 	chimken_shape.disabled = true

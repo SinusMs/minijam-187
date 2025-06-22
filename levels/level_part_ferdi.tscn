@@ -28,6 +28,23 @@ func _on_body_entered(body: Node2D) -> void:
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7mpxg"]
 size = Vector2(515, 1654)
 
+[sub_resource type="GDScript" id="GDScript_bdaa4"]
+script/source = "extends BackBufferCopy
+
+var apply: bool = false;
+
+func _ready() -> void:
+	SignalBus.SwapShaderEffect.connect(swapShader);
+
+func swapShader() -> void:
+	$ColorRect.material.set_shader_parameter(\"applyShader\", !apply);
+	apply = !apply;
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ci58w"]
+shader = ExtResource("6_ivlww")
+shader_parameter/applyShader = false
+
 [node name="LevelPartFerdi" type="Node2D"]
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
