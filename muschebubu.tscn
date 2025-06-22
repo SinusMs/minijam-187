@@ -87,16 +87,10 @@ _data = {
 
 [node name="Node2D" type="Node2D"]
 
-[node name="w" type="Camera2D" parent="."]
-position = Vector2(-5, 6.10352e-05)
-scale = Vector2(7.29113, 7.59574)
-
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-642, -23)
 scale = Vector2(0.676196, 1.16103)
 texture = ExtResource("2_rulpf")
-
-[node name="Node2D" type="Node2D" parent="."]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("rect", "persuer", "animation_player")]
 script = ExtResource("2_p6ga2")
@@ -120,7 +114,5 @@ color = Color(0, 0, 0, 1)
 libraries = {
 &"": SubResource("AnimationLibrary_1sc8n")
 }
-autoplay = "gefährliche_animation"
 
-[connection signal="trigger_persuer" from="CanvasLayer" to="CanvasLayer" method="_on_trigger_persuer"]
 [connection signal="animation_finished" from="AnimationPlayer" to="CanvasLayer" method="_on_animation_player_animation_finished"]
