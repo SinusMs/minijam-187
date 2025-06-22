@@ -1,8 +1,9 @@
-[gd_scene load_steps=14 format=3 uid="uid://brvm602igwqwq"]
+[gd_scene load_steps=15 format=3 uid="uid://brvm602igwqwq"]
 
 [ext_resource type="Script" uid="uid://bul8k2cywkbp2" path="res://ui/progress_bar.gd" id="1_gtq4w"]
 
 [ext_resource type="Texture2D" uid="uid://pf5r75lqjuv3" path="res://assets/player/chimkenEgg.png" id="2_4usvg"]
+[ext_resource type="Texture2D" uid="uid://d0pisi6qgkyx8" path="res://assets/slider.png" id="2_5rton"]
 [ext_resource type="Texture2D" uid="uid://b3ilrrgteos1i" path="res://assets/egg_ui_anim.png" id="2_gtq4w"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pn2d2"]
@@ -79,6 +80,7 @@ anchors_preset = 0
 script = ExtResource("1_gtq4w")
 
 [node name="Panel" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 1
 offset_right = 480.0
@@ -94,6 +96,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+texture = ExtResource("2_5rton")
 
 [node name="ProgressForeground" type="TextureRect" parent="Panel"]
 z_index = 1
