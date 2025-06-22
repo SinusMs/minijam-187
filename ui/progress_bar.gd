@@ -41,6 +41,7 @@ func _process(delta):
 	if Input.is_key_pressed(KEY_R):
 		time_total = 0;
 		
+
 		
 	# time based Testing
 	if move_persuer:
@@ -50,14 +51,19 @@ func _process(delta):
 	var progress: float = lerp(progress_start, progress_end, clampf(time_total / 10, 0, 1));
 	move_chicken_icon(progress);
 
+
 ## Moves the UI Progress Icon to [param progress]% [br]
 ## Sets [member progress_current] to [param progress]
 func move_chicken_icon(progress: float) -> void:
 	progress_current = progress;
-	$Panel/ProgressIcon.position.x = progress_current;
+
+	$Panel/ProgressIcon.position.x = lerp(progress_start, progress_end, clampf(progress, 0, 1));
+
+	
 	
 	if move_persuer:
 		$Panel/persuer.position.x = lerp(progress_start*1.0, progress, 1 - (persuer_speed - persuer_dtime)/ persuer_speed)
+
 	pass
 
 
