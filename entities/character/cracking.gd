@@ -9,6 +9,7 @@ func enter() -> void:
 	chimken_shape.disabled = false
 	egg_sprite.play("splat")
 	character.rotation = 0.0
+	SignalBus.egg_broke.emit(character.global_position)
 	await egg_sprite.animation_finished
 	transitioned.emit(self, "chimken")
 

@@ -59,5 +59,5 @@ func physics_update(_delta: float) -> void:
 	
 	# aufrichten wenn umgefallen
 	var rot: float = character.rotation_degrees
-	if rot < -45 or rot > 45:
+	if rot < -10 or rot > 10:
 		character.apply_force(Vector2(rot * 0.8, 0.0), Vector2(0.0, 1000.0))

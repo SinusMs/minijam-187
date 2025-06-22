@@ -3,7 +3,7 @@ extends Node
 
 signal level_started
 
-signal egg_broke
+signal egg_broke(pos: Vector2)
 
 signal egg_laid
 
