@@ -5,16 +5,15 @@ extends CanvasLayer
 @export var gloomyness: float
 @export var animation_player: AnimationPlayer
 
-signal trigger_persuer
 signal survived
 
 var shader
 
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	SignalBus.connect("trigger_persuer", trigger_persuer)
 	gloomyness = 0.0
-	#persuer.visible = false
+	persuer.visible = false
 	shader = rect.material
 	pass # Replace with function body.
 
@@ -22,16 +21,13 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	shader.set_shader_parameter("grrr", gloomyness)
-	print(shader.get_shader_parameter("grrr"))
 	pass
 
 
-func _on_trigger_persuer() -> void:
+func trigger_persuer() -> void:
 	persuer.visible = true
 	animation_player.play("gefährliche_animation")
 	pass # Replace with function body.
-
-
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
