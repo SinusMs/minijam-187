@@ -8,6 +8,7 @@ func _ready() -> void:
 func _on_death_area_body_entered(body: Node2D) -> void:
 	if body is RigidBody2D:
 		## play shredder audio and pause shortly
+		$Shredder_SFX.play()
 		body.free()
 		$EnterName.visible = true
 
