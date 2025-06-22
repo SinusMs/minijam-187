@@ -4,6 +4,7 @@ class_name Chimken
 @export var character: RigidBody2D
 @export var chimken_shape: CollisionPolygon2D
 @export var chimken_sprite: AnimatedSprite2D
+@export var particle_emitter: Node2D
 
 @export var move_speed: float = 500.0
 
@@ -43,6 +44,7 @@ func physics_update(_delta: float) -> void:
 		character.apply_impulse(Vector2(0.0, -jump_strenght))
 		jump_counter -= 1
 		time = 0.0
+		particle_emitter.emit_feathers()
 		transitioned.emit(self, "jumping")
 	
 	if character.on_floor_currently:

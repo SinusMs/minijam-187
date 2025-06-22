@@ -8,9 +8,9 @@
 [ext_resource type="Script" uid="uid://bpqig4m2x7qas" path="res://entities/character/cracking.gd" id="6_cjobk"]
 [ext_resource type="Script" uid="uid://bthe1f6noc4w0" path="res://entities/character/shitting.gd" id="7_ybtjf"]
 [ext_resource type="Script" uid="uid://c6yiuqx2hiq21" path="res://entities/character/jumping.gd" id="8_ecc8j"]
+[ext_resource type="PackedScene" uid="uid://dkm2eec6qtuej" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i81ls"]
-friction = 0.0
 bounce = 9.22337e+18
 absorbent = true
 
@@ -29,10 +29,6 @@ region = Rect2(64, 64, 32, 32)
 [sub_resource type="AtlasTexture" id="AtlasTexture_yilud"]
 atlas = ExtResource("2_y5qnr")
 region = Rect2(96, 64, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_cjobk"]
-atlas = ExtResource("2_y5qnr")
-region = Rect2(0, 64, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_b6pt5"]
 atlas = ExtResource("2_y5qnr")
@@ -109,9 +105,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_yilud")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_cjobk")
 }],
 "loop": false,
 "name": &"chick_jump",
@@ -185,37 +178,42 @@ physics_material_override = SubResource("PhysicsMaterial_i81ls")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_2peoh")
+initial_shit_amount = 0
+can_shit = true
 
 [node name="ChimkenSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v821y")
-animation = &"chick_run"
+animation = &"chick_jump"
 
 [node name="EggCollShape" type="CollisionPolygon2D" parent="."]
 polygon = PackedVector2Array(-3, -7, -6, -4, -7, -2, -7, 3, -6, 5, -3, 8, 2, 8, 5, 5, 6, 3, 6, -2, 5, -4, 2, -7)
 disabled = true
 
 [node name="ChimkenCollShape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(-13, 13, 13, 13, 12, -15, 2, -15, -15, -2)
+polygon = PackedVector2Array(0, 13, 13, 10, 13, -7, 9, -15, 4, -15, -9, -5, -15, 2, -12, 10)
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_5rbde")
 initial_state = NodePath("Chimken")
 metadata/_custom_type_script = "uid://bmhsu3tnko74x"
 
-[node name="Egg" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "egg_shape", "egg_sprite")]
+[node name="Egg" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "egg_shape", "egg_sprite", "particle_emitter")]
 script = ExtResource("3_jqtp5")
 character = NodePath("../..")
 egg_shape = NodePath("../../EggCollShape")
 egg_sprite = NodePath("../../ChimkenSprite")
+particle_emitter = NodePath("../../ChickenParticleEmitter")
 crack_speed_threshold = 300.0
 metadata/_custom_type_script = "uid://c2uxhropemok1"
 
-[node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite")]
+[node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite", "particle_emitter")]
 script = ExtResource("4_i81ls")
 character = NodePath("../..")
 chimken_shape = NodePath("../../ChimkenCollShape")
 chimken_sprite = NodePath("../../ChimkenSprite")
-jump_cooldown = 0.1
+particle_emitter = NodePath("../../ChickenParticleEmitter")
+jump_amount = 10
+jump_cooldown = 0.01
 metadata/_custom_type_script = "uid://bd0tonvbr6kkb"
 
 [node name="Cracking" type="Node" parent="StateMachine" node_paths=PackedStringArray("egg_sprite", "character", "chimken_shape")]
@@ -238,3 +236,5 @@ character = NodePath("../..")
 chimken_sprite = NodePath("../../ChimkenSprite")
 chimken_shape = NodePath("../../ChimkenCollShape")
 metadata/_custom_type_script = "uid://c6yiuqx2hiq21"
+
+[node name="ChickenParticleEmitter" parent="." instance=ExtResource("9_ybtjf")]
