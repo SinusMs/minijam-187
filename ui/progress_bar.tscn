@@ -1,7 +1,76 @@
-[gd_scene load_steps=3 format=3 uid="uid://brvm602igwqwq"]
+[gd_scene load_steps=14 format=3 uid="uid://brvm602igwqwq"]
 
 [ext_resource type="Script" uid="uid://bul8k2cywkbp2" path="res://ui/progress_bar.gd" id="1_gtq4w"]
-[ext_resource type="Texture2D" uid="uid://grcwjbwpuh6x" path="res://assets/temp-egg_ui.png" id="2_4usvg"]
+[ext_resource type="Texture2D" uid="uid://pf5r75lqjuv3" path="res://assets/player/chimkenEgg.png" id="2_4usvg"]
+[ext_resource type="Texture2D" uid="uid://b3ilrrgteos1i" path="res://assets/egg_ui_anim.png" id="2_gtq4w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pn2d2"]
+atlas = ExtResource("2_4usvg")
+region = Rect2(0, 96, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gtq4w"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4usvg"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5rton"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkq1o"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a3wwd"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ibfck"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gisq8"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(192, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c8pkw"]
+atlas = ExtResource("2_gtq4w")
+region = Rect2(224, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pn2d2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gtq4w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4usvg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5rton")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkq1o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a3wwd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ibfck")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gisq8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c8pkw")
+}],
+"loop": true,
+"name": &"ui_rolling_egg",
+"speed": 15.0
+}]
 
 [node name="SingleIconProgressBar" type="Control"]
 layout_mode = 3
@@ -15,16 +84,6 @@ offset_right = 480.0
 offset_bottom = 80.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
-
-[node name="ProgressIcon" type="TextureRect" parent="Panel"]
-custom_minimum_size = Vector2(64, 32)
-layout_mode = 1
-anchors_preset = 9
-anchor_bottom = 1.0
-grow_vertical = 2
-texture = ExtResource("2_4usvg")
-expand_mode = 1
-stretch_mode = 5
 
 [node name="ProgressBackground" type="TextureRect" parent="Panel"]
 z_index = -1
@@ -43,3 +102,18 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ProgressIcon" type="TextureRect" parent="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("AtlasTexture_pn2d2")
+
+[node name="AnimatedUiSprite" type="AnimatedSprite2D" parent="Panel/ProgressIcon"]
+position = Vector2(16, 40)
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_pn2d2")
+animation = &"ui_rolling_egg"
+autoplay = "ui_rolling_egg"
+frame_progress = 0.591367
