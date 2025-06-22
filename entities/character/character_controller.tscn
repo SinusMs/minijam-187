@@ -8,10 +8,12 @@
 [ext_resource type="Script" uid="uid://bpqig4m2x7qas" path="res://entities/character/cracking.gd" id="6_cjobk"]
 [ext_resource type="Script" uid="uid://bthe1f6noc4w0" path="res://entities/character/shitting.gd" id="7_ybtjf"]
 [ext_resource type="Script" uid="uid://c6yiuqx2hiq21" path="res://entities/character/jumping.gd" id="8_ecc8j"]
-[ext_resource type="PackedScene" uid="uid://dkm2eec6qtuej" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
+[ext_resource type="Script" uid="uid://1r4w35mas84v" path="res://entities/character/persuer_event.gd" id="9_ecc8j"]
+[ext_resource type="PackedScene" uid="uid://b554hksx6qxt3" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i81ls"]
 friction = 2.0
+
 bounce = 9.22337e+18
 absorbent = true
 
@@ -237,6 +239,11 @@ character = NodePath("../..")
 chimken_sprite = NodePath("../../ChimkenSprite")
 chimken_shape = NodePath("../../ChimkenCollShape")
 metadata/_custom_type_script = "uid://c6yiuqx2hiq21"
+
+[node name="PersuerEvent" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "sprite")]
+script = ExtResource("9_ecc8j")
+character = NodePath("../..")
+sprite = NodePath("../../ChimkenSprite")
 
 [node name="Cracking" type="Node" parent="StateMachine" node_paths=PackedStringArray("egg_sprite", "character", "chimken_shape")]
 script = ExtResource("6_cjobk")
