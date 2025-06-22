@@ -1,0 +1,35 @@
+[gd_scene load_steps=3 format=3 uid="uid://biiq3d4byrqtm"]
+
+[ext_resource type="Script" uid="uid://dw1iri1gxjjtu" path="res://ui/intro.gd" id="1_4v4r4"]
+[ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="2_1cctr"]
+
+[node name="Intro" type="CanvasLayer"]
+script = ExtResource("1_4v4r4")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+color = Color(0.0196078, 0.121569, 0.0784314, 1)
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -523.0
+offset_top = 226.0
+offset_right = 523.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 0.509804, 0.454902, 1)
+theme_override_fonts/font = ExtResource("2_1cctr")
+theme_override_font_sizes/font_size = 50
+text = "What was first?
+The chicken or the egg?
+I won't find out in this hell!
+I have to find out!
+I have to break free!"
+horizontal_alignment = 1

@@ -7,7 +7,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_126yu"]
 shader = ExtResource("1_126yu")
-shader_parameter/grrr = 10.0
+shader_parameter/grrr = 0.0
 
 [sub_resource type="Animation" id="Animation_p6ga2"]
 length = 0.001
@@ -174,8 +174,6 @@ _data = {
 
 [node name="Icon" type="Sprite2D" parent="."]
 position = Vector2(-642, -23)
-rotation = -0.261799
-scale = Vector2(1.1962, 1.16103)
 texture = ExtResource("1_p6ga2")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." node_paths=PackedStringArray("rect", "persuer", "animation_player", "prompt")]
@@ -192,6 +190,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -201,11 +200,8 @@ libraries = {
 
 [node name="FButtonPrompt" type="Sprite2D" parent="."]
 modulate = Color(1, 1, 1, 0)
-position = Vector2(0, 103)
-rotation = -0.261799
-scale = Vector2(3, 2)
+position = Vector2(0, 122)
+scale = Vector2(2, 2)
 texture = ExtResource("5_1sc8n")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="CanvasLayer" method="_on_animation_player_animation_finished"]

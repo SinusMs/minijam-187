@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://eefgqkkekoce"]
+[gd_scene load_steps=14 format=3 uid="uid://eefgqkkekoce"]
 
 [ext_resource type="Script" uid="uid://mdhv4x4j666j" path="res://ui/hud.gd" id="1_rbyyf"]
 [ext_resource type="PackedScene" uid="uid://dfmc140gu4l1k" path="res://globals/chicken_game_music.tscn" id="4_7ihmi"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://duwku4fnxdm76" path="res://ui/standard_panel.tscn" id="8_srpbi"]
 [ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="9_m0eg6"]
 [ext_resource type="PackedScene" path="res://ui/stopwatch.tscn" id="9_spcu4"]
+[ext_resource type="PackedScene" uid="uid://c8e0fbvyah8ee" path="res://muschebubu.tscn" id="10_ff8ar"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_b00kl"]
 bg_color = Color(0.6, 0.6, 0.6, 0)
@@ -54,7 +55,6 @@ script = ExtResource("1_rbyyf")
 shakeFade = 20.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_en2x2")]
-visible = false
 
 [node name="ChickenGameMusic" parent="." instance=ExtResource("4_7ihmi")]
 stream = ExtResource("8_spcu4")
@@ -100,16 +100,17 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "You Died"
 
-[node name="Respawn" type="MarginContainer" parent="."]
+[node name="Respawn" type="MarginContainer" parent="YouDiedPanel"]
+layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -163.0
-offset_top = 21.0
+offset_top = 33.0
 offset_right = 163.0
-offset_bottom = 255.0
+offset_bottom = 267.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -120,11 +121,11 @@ theme_override_constants/margin_right = 100
 theme_override_constants/margin_bottom = 100
 script = ExtResource("8_ff8ar")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Respawn"]
+[node name="VBoxContainer" type="VBoxContainer" parent="YouDiedPanel/Respawn"]
 layout_mode = 2
 theme_override_constants/separation = 15
 
-[node name="ReturnButton" type="Button" parent="Respawn/VBoxContainer"]
+[node name="ReturnButton" type="Button" parent="YouDiedPanel/Respawn/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_colors/font_outline_color = Color(0.00784314, 0.0745098, 0.0509804, 1)
@@ -137,4 +138,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_so1yu")
 theme_override_styles/normal = SubResource("StyleBoxFlat_65xic")
 text = "Run again"
 
-[connection signal="pressed" from="Respawn/VBoxContainer/ReturnButton" to="Respawn" method="_on_return_button_pressed"]
+[node name="Node2D" parent="." instance=ExtResource("10_ff8ar")]
+position = Vector2(620, 370)
+
+[connection signal="pressed" from="YouDiedPanel/Respawn/VBoxContainer/ReturnButton" to="YouDiedPanel/Respawn" method="_on_return_button_pressed"]

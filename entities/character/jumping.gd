@@ -8,10 +8,11 @@ class_name Jumping
 var connected = false
 
 func enter() -> void:
+	$"../../WingSlap_SFX".play()
+	$"../../ChickSFX".play()
 	if not connected:
 		SignalBus.connect("trigger_persuer", _on_trigger_persuer)
 		connected = true
-		
 	chimken_shape.disabled = false
 	chimken_sprite.play("chick_jump")
 	await chimken_sprite.animation_finished

@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=3 uid="uid://b7j268eje2u0m"]
+[gd_scene load_steps=17 format=3 uid="uid://b7j268eje2u0m"]
 
 [ext_resource type="Script" uid="uid://cuqybitx7i2cl" path="res://levels/end_level.gd" id="1_0dpdw"]
-[ext_resource type="PackedScene" path="res://levels/parallax_background.tscn" id="2_0dpdw"]
+[ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="2_0dpdw"]
 [ext_resource type="Texture2D" uid="uid://cycc38fnyq2e8" path="res://assets/startingEndScreen.png" id="2_y8ap5"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="4_gkaq1"]
 [ext_resource type="Texture2D" uid="uid://bunb77reemrqo" path="res://assets/start_floor.png" id="5_pdi2x"]
 [ext_resource type="PackedScene" uid="uid://e2wiilhoekjt" path="res://ui/enter_name.tscn" id="5_rlfl5"]
 [ext_resource type="PackedScene" uid="uid://d3m1yw63xmw8i" path="res://ui/leaderboard.tscn" id="7_t7l8x"]
 [ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="8_gkaq1"]
+[ext_resource type="PackedScene" uid="uid://cu0vnnfircuri" path="res://audio/shredder_sfx.tscn" id="9_pdi2x"]
+[ext_resource type="PackedScene" uid="uid://6npcm6iuds5r" path="res://audio/chick_sfx.tscn" id="10_cxyej"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6n3"]
 size = Vector2(777.001, 20)
@@ -138,7 +140,7 @@ position = Vector2(-295, 155)
 [node name="death_area" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="death_area"]
-position = Vector2(1, 90.5)
+position = Vector2(-32, 92)
 shape = SubResource("RectangleShape2D_0dpdw")
 
 [node name="EnterName" parent="." instance=ExtResource("5_rlfl5")]
@@ -174,6 +176,20 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_pdi2x")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cxyej")
 theme_override_styles/normal = SubResource("StyleBoxFlat_xvt2l")
 text = "restart"
+
+[node name="Shredder_SFX" parent="." instance=ExtResource("9_pdi2x")]
+
+[node name="farm" type="Node" parent="."]
+
+[node name="AudioStreamPlayer2D" parent="farm" instance=ExtResource("10_cxyej")]
+volume_db = 1.5
+farm_mode = true
+frequency = 2.0
+
+[node name="AudioStreamPlayer2D2" parent="farm" instance=ExtResource("10_cxyej")]
+volume_db = 2.0
+farm_mode = true
+frequency = 5.0
 
 [connection signal="body_entered" from="death_area" to="." method="_on_death_area_body_entered"]
 [connection signal="pressed" from="RestartButton" to="." method="_on_restart_button_pressed"]

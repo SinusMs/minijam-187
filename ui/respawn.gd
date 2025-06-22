@@ -12,5 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_return_button_pressed() -> void:
-	SignalBus.restart_game.emit()
-	pass # Replace with function body.
+	if visible:
+		SignalBus.restart_game.emit()
