@@ -36,6 +36,8 @@ func _process(delta: float) -> void:
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shakeFade * delta)
 		for child in get_children():
+			if child is CanvasLayer:
+				continue
 			child.position = original_pos[child] + randomOffset()
 	
 	
