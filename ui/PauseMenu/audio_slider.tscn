@@ -1,6 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://dnw4cp253baxp"]
+[gd_scene load_steps=6 format=3 uid="uid://dnw4cp253baxp"]
 
 [ext_resource type="Script" uid="uid://b5tlinucexy3t" path="res://ui/PauseMenu/audio_slider.gd" id="1_1bp6j"]
+[ext_resource type="Texture2D" uid="uid://pf5r75lqjuv3" path="res://assets/player/chimkenEgg.png" id="1_iskk2"]
+[ext_resource type="Texture2D" uid="uid://c51ovcfayl3cy" path="res://assets/highlighted_slider_icon.tres" id="2_kk6u4"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kk6u4"]
+atlas = ExtResource("1_iskk2")
+region = Rect2(8, 104, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6gysn"]
+atlas = ExtResource("1_iskk2")
+region = Rect2(64, 128, 32, 32)
 
 [node name="AudioSlider" type="HSlider"]
 custom_minimum_size = Vector2(200, 50)
@@ -15,6 +25,10 @@ offset_right = 4.0
 offset_bottom = 8.0
 grow_horizontal = 2
 grow_vertical = 2
+focus_mode = 0
+theme_override_icons/grabber = SubResource("AtlasTexture_kk6u4")
+theme_override_icons/grabber_highlight = ExtResource("2_kk6u4")
+theme_override_icons/grabber_disabled = SubResource("AtlasTexture_6gysn")
 max_value = 1.0
 step = 0.001
 script = ExtResource("1_1bp6j")
