@@ -11,6 +11,7 @@ var original_pos: Dictionary = {}
 
 @onready var generation_panel: Panel = $GenerationPanel
 @onready var pickup_panel: Panel = $PickupPanel
+@onready var you_died_panel: Panel = $YouDiedPanel
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS 

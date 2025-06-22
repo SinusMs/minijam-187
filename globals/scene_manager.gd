@@ -34,7 +34,7 @@ func on_egg_broke(pos: Vector2) -> void:
 	rand_mini_level.global_position = pos
 	if rand_mini_level.has_method("reset"):
 		rand_mini_level.reset()
-    
+	
 func on_game_restarted() -> void:
 	for node in get_children():
 		node.queue_free()
@@ -42,4 +42,5 @@ func on_game_restarted() -> void:
 	call_deferred("add_child", load("res://levels/start_level.tscn").instantiate())
 
 func on_unalived():
+	
 	pass
