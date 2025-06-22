@@ -1,0 +1,78 @@
+[gd_scene load_steps=10 format=3 uid="uid://b133urwm8xuqq"]
+
+[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="1_riump"]
+[ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="2_kokp8"]
+[ext_resource type="Texture2D" uid="uid://btpdjy4efm746" path="res://icon.svg" id="3_kntr4"]
+[ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="4_udenv"]
+[ext_resource type="Texture2D" uid="uid://cpunxoqnhuoyi" path="res://assets/background.png" id="5_kokp8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7tovp"]
+size = Vector2(1e+06, 181)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_tg4o1"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_7tovp"]
+width = 15797
+height = 180
+noise = SubResource("FastNoiseLite_tg4o1")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8t4qb"]
+size = Vector2(128, 124)
+
+[node name="matildaArtTesting" type="Node2D"]
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(-142, -219)
+texture = ExtResource("5_kokp8")
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(0, 80.5)
+shape = SubResource("RectangleShape2D_7tovp")
+
+[node name="Sprite2D" type="Sprite2D" parent="Floor"]
+position = Vector2(0, 81.2)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D2" type="Sprite2D" parent="Floor"]
+position = Vector2(15737, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D3" type="Sprite2D" parent="Floor"]
+position = Vector2(31500, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D4" type="Sprite2D" parent="Floor"]
+position = Vector2(47288, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D5" type="Sprite2D" parent="Floor"]
+position = Vector2(63088, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D6" type="Sprite2D" parent="Floor"]
+position = Vector2(78888, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="Sprite2D7" type="Sprite2D" parent="Floor"]
+position = Vector2(94646, 81)
+texture = SubResource("NoiseTexture2D_7tovp")
+
+[node name="CharacterController" parent="." instance=ExtResource("1_riump")]
+position = Vector2(0, -152)
+
+[node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("2_kokp8")]
+player = NodePath("../CharacterController")
+
+[node name="Obstacle" type="StaticBody2D" parent="."]
+position = Vector2(3309, -71)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Obstacle"]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_8t4qb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Obstacle"]
+texture = ExtResource("3_kntr4")
+
+[node name="Control" parent="." instance=ExtResource("4_udenv")]
