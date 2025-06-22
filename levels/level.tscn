@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=4 uid="uid://baith71r0um7v"]
+[gd_scene load_steps=8 format=4 uid="uid://dvm6ksf6mtcq1"]
 
 [ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_gjl0y"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_5mrsh"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_safpt"]
 [ext_resource type="Texture2D" uid="uid://cpunxoqnhuoyi" path="res://assets/background.png" id="5_gjl0y"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="6_gjl0y"]
+[ext_resource type="PackedScene" uid="uid://de016iersx2t6" path="res://audio/chicken_music.tscn" id="7_d5x7l"]
 [ext_resource type="PackedScene" uid="uid://eefgqkkekoce" path="res://ui/hud.tscn" id="7_vnv7o"]
 
 [node name="Level" type="Node2D"]
@@ -156,3 +157,5 @@ region_rect = Rect2(0, 3840, 640, 480)
 
 [node name="NougatBits" parent="PickupContainer" instance=ExtResource("6_gjl0y")]
 position = Vector2(375, -54)
+
+[node name="ChickenMusic" parent="." instance=ExtResource("7_d5x7l")]

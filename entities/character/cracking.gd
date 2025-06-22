@@ -6,6 +6,7 @@ class_name Cracking
 @export var chimken_shape: CollisionShape2D
 
 func enter() -> void:
+	$"../../EggCrackSFX".play()
 	chimken_shape.disabled = false
 	egg_sprite.play("splat")
 	character.rotation = 0.0

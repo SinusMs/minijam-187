@@ -6,6 +6,7 @@ class_name Shitting
 @export var chimken_shape: CollisionShape2D
 
 func enter() -> void:
+	$"../../Shit_SFX".play()
 	chimken_shape.disabled = false
 	chimken_sprite.play("shit")
 	var tween = get_tree().create_tween()
