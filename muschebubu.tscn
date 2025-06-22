@@ -1,13 +1,13 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8e0fbvyah8ee"]
 
-[ext_resource type="Shader" uid="uid://wru3oyd7ijh2" path="res://muschebubu.gdshader" id="1_126yu"]
+[ext_resource type="Shader" path="res://muschebubu.gdshader" id="1_126yu"]
 [ext_resource type="Texture2D" uid="uid://dw1ppg44jg654" path="res://assets/persuer.png" id="1_p6ga2"]
-[ext_resource type="Script" uid="uid://cg6x4ppikxokq" path="res://screen_shader.gd" id="2_p6ga2"]
+[ext_resource type="Script" path="res://screen_shader.gd" id="2_p6ga2"]
 [ext_resource type="Texture2D" uid="uid://7pwkiit6qbbe" path="res://assets/f_button_prompt.png" id="5_1sc8n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_126yu"]
 shader = ExtResource("1_126yu")
-shader_parameter/grrr = 10.0
+shader_parameter/grrr = 0.0
 
 [sub_resource type="Animation" id="Animation_p6ga2"]
 length = 0.001
@@ -192,6 +192,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -205,7 +206,5 @@ position = Vector2(0, 103)
 rotation = -0.261799
 scale = Vector2(3, 2)
 texture = ExtResource("5_1sc8n")
-
-[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="CanvasLayer" method="_on_animation_player_animation_finished"]

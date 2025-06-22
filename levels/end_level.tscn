@@ -83,7 +83,7 @@ region_enabled = true
 region_rect = Rect2(0, 400, 640, 400)
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("2_0dpdw")]
-transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
+scale = Vector2(1, 1)
 
 [node name="floor" type="StaticBody2D" parent="."]
 
