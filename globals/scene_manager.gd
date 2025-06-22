@@ -4,7 +4,8 @@ const level_path = "res://levels/"
 
 func _ready() -> void:
 	#start with level0
-	get_tree().change_scene_to_file("res://levels/start_level.tscn")
+	get_tree().change_scene_to_file("res://globals/scene_manager.tscn")
+	add_child(load("res://levels/start_level.tscn").instantiate())
 	SignalBus.start_game.connect(on_start_game)
 	#SignalBus.finish_game.connect(on_game_finished)
 	#SignalBus.finish_game.connect(on_game_restarted)
@@ -12,9 +13,10 @@ func _ready() -> void:
 
 	
 func on_start_game() -> void:
-	for node in $current_scene.get_children():
+	for node in get_children():
 		node.queue_free()
-	get_tree().change_scene_to_file("res://levels/level2_hans.tscn")
+	add_child(load("res://levels/level2_hans.tscn").instantiate())
+	print("start game")
 	
 func _on_game_finished() -> void:
 	pass
