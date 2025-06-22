@@ -9,7 +9,7 @@
 [ext_resource type="Script" uid="uid://bthe1f6noc4w0" path="res://entities/character/shitting.gd" id="7_ybtjf"]
 [ext_resource type="Script" uid="uid://c6yiuqx2hiq21" path="res://entities/character/jumping.gd" id="8_ecc8j"]
 [ext_resource type="Script" path="res://entities/character/persuer_event.gd" id="9_ecc8j"]
-[ext_resource type="PackedScene" uid="uid://b554hksx6qxt3" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
+[ext_resource type="PackedScene" uid="uid://dkm2eec6qtuej" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
 [ext_resource type="PackedScene" uid="uid://dw515ny1u80ce" path="res://audio/wing_slap_sfx.tscn" id="11_gqdnt"]
 [ext_resource type="PackedScene" uid="uid://dkbwbo83xqp0" path="res://audio/shit_sfx.tscn" id="12_v821y"]
 [ext_resource type="PackedScene" uid="uid://bb1g7f43tjmuk" path="res://audio/egg_crack_sfx.tscn" id="13_230m7"]
@@ -189,6 +189,7 @@ radius = 12.0
 [node name="CharacterControllerBody" type="RigidBody2D"]
 mass = 0.495
 physics_material_override = SubResource("PhysicsMaterial_i81ls")
+continuous_cd = 1
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_2peoh")
@@ -266,9 +267,11 @@ metadata/_custom_type_script = "uid://bpqig4m2x7qas"
 [node name="ChickenParticleEmitter" parent="." instance=ExtResource("9_ybtjf")]
 
 [node name="WingSlap_SFX" parent="." instance=ExtResource("11_gqdnt")]
+stream = null
 
 [node name="Shit_SFX" parent="." instance=ExtResource("12_v821y")]
 
 [node name="EggCrackSFX" parent="." instance=ExtResource("13_230m7")]
+stream = null
 
 [node name="ChickSFX" parent="." instance=ExtResource("14_3l65k")]

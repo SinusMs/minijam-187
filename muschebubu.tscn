@@ -1,8 +1,8 @@
 [gd_scene load_steps=10 format=3 uid="uid://c8e0fbvyah8ee"]
 
-[ext_resource type="Shader" uid="uid://wru3oyd7ijh2" path="res://muschebubu.gdshader" id="1_126yu"]
+[ext_resource type="Shader" path="res://muschebubu.gdshader" id="1_126yu"]
 [ext_resource type="Texture2D" uid="uid://dw1ppg44jg654" path="res://assets/persuer.png" id="1_p6ga2"]
-[ext_resource type="Script" uid="uid://cg6x4ppikxokq" path="res://screen_shader.gd" id="2_p6ga2"]
+[ext_resource type="Script" path="res://screen_shader.gd" id="2_p6ga2"]
 [ext_resource type="Texture2D" uid="uid://7pwkiit6qbbe" path="res://assets/f_button_prompt.png" id="5_1sc8n"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_126yu"]
