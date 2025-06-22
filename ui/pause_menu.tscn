@@ -1,13 +1,64 @@
-[gd_scene load_steps=5 format=3 uid="uid://dh6ykrcsstbav"]
+[gd_scene load_steps=10 format=3 uid="uid://dh6ykrcsstbav"]
 
 [ext_resource type="Shader" uid="uid://iumj15yllrty" path="res://ui/blur.gdshader" id="1_50142"]
-
 [ext_resource type="Script" uid="uid://cdqfymmhab1p5" path="res://ui/pause_menu.gd" id="1_ejwgg"]
-
+[ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="3_avurv"]
 [ext_resource type="PackedScene" uid="uid://bsp6gqspchgm7" path="res://volume_sliders.tscn" id="3_fob5h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ejwgg"]
 shader = ExtResource("1_50142")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_npydk"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 5
+border_width_top = 5
+border_width_right = 5
+border_width_bottom = 5
+border_color = Color(0.235294, 0.835294, 0.654902, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6ap7o"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.835294, 0.235294, 0.415686, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_avurv"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.00784314, 0.0745098, 0.0509804, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_j3kxr"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.835294, 0.235294, 0.415686, 1)
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+anti_aliasing = false
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource("1_ejwgg")
@@ -46,11 +97,31 @@ theme_override_constants/separation = 15
 
 [node name="ReturnButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.00784314, 0.0745098, 0.0509804, 1)
+theme_override_colors/font_color = Color(0.235294, 0.835294, 0.654902, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_avurv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_npydk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_6ap7o")
+theme_override_styles/normal = SubResource("StyleBoxFlat_avurv")
 text = "return"
 
 [node name="ExitButton" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme_override_colors/font_outline_color = Color(0.00784314, 0.0745098, 0.0509804, 1)
+theme_override_colors/font_color = Color(0.235294, 0.835294, 0.654902, 1)
+theme_override_constants/outline_size = 4
+theme_override_fonts/font = ExtResource("3_avurv")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/hover = SubResource("StyleBoxFlat_npydk")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_j3kxr")
+theme_override_styles/normal = SubResource("StyleBoxFlat_avurv")
 text = "exit"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
 
 [node name="MusicContainer" parent="MarginContainer/VBoxContainer" instance=ExtResource("3_fob5h")]
 layout_mode = 2
