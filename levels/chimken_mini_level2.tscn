@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=4 uid="uid://ch4g2yopls8ox"]
 
-[ext_resource type="TileSet" uid="uid://dpc4qslxyke1v" path="res://levels/new_tileset.tres" id="1_m6nuo"]
+[ext_resource type="TileSet" uid="uid://bjgnrs541uf7c" path="res://levels/new_tileset.tres" id="1_m6nuo"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_3ep74"]
 [ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_65861"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="4_v2onm"]
@@ -12,7 +12,7 @@ tile_map_data = PackedByteArray("AAD9/wEAAAAKAAQAAAD+/wEAAAAMAAQAAAD//wEAAAAMAAQ
 tile_set = ExtResource("1_m6nuo")
 
 [node name="CharacterControllerBody" parent="." instance=ExtResource("2_3ep74")]
-move_speed = 250.0
+move_speed = 150.0
 
 [node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_65861")]
 player = NodePath("../CharacterControllerBody")
