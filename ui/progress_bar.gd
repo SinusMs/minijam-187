@@ -21,6 +21,7 @@ var persuer_speed: float = 5.0
 var persuer_dtime: float = 0.0
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	$Panel/persuer.position.x = progress_start
 	$Panel/persuer.position.y = $Panel/ProgressIcon/AnimatedUiSprite.position.y
 	# Setup progress bar start and end

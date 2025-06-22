@@ -24,7 +24,6 @@ func enter() -> void:
 		SignalBus.connect("trigger_persuer", _on_trigger_persuer)
 		connected = true	
 	egg_shape.disabled = false
-	character.physics_material_override.friction = 1.0
 	speed = initial_speed
 	egg_sprite.play("egg")
 	print("eggus maximus")

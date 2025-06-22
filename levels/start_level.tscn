@@ -1,7 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://b31ylaa65kopb"]
+[gd_scene load_steps=8 format=3 uid="uid://d0nc4gqruq2mf"]
 
 [ext_resource type="Script" uid="uid://bh10yb4tkfe1v" path="res://levels/start_level.gd" id="1_sq6n3"]
-[ext_resource type="PackedScene" uid="uid://bcyxpx70wedgn" path="res://levels/parallax_background.tscn" id="1_wiq57"]
+[ext_resource type="PackedScene" path="res://levels/parallax_background.tscn" id="1_wiq57"]
 [ext_resource type="Texture2D" uid="uid://boeibd8hq2kjl" path="res://assets/startingScreen.png" id="2_ii2ba"]
 [ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="3_csg43"]
 
@@ -9,7 +9,7 @@
 
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sq6n3"]
-size = Vector2(711, 20)
+size = Vector2(785.001, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2pqlg"]
 size = Vector2(20, 301.5)
@@ -18,7 +18,7 @@ size = Vector2(20, 301.5)
 script = ExtResource("1_sq6n3")
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("1_wiq57")]
-scale = Vector2(1, 1)
+transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 rotation = -0.261799
@@ -51,7 +51,7 @@ position = Vector2(-137, -263)
 rotation = 1.5708
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="wall_left"]
-position = Vector2(24.5, 193)
+position = Vector2(61.5004, 193)
 shape = SubResource("RectangleShape2D_sq6n3")
 
 [node name="Sprite2D2" type="Sprite2D" parent="wall_left"]

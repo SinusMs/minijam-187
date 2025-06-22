@@ -5,6 +5,7 @@ var time = 0.0
 var stopped = false
 
 func _ready() -> void:
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	SignalBus.level_started.connect(reset)
 	
 

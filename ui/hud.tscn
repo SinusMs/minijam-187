@@ -1,9 +1,6 @@
-[gd_scene load_steps=10 format=3 uid="uid://eefgqkkekoce"]
+[gd_scene load_steps=8 format=3 uid="uid://eefgqkkekoce"]
 
 [ext_resource type="Script" uid="uid://mdhv4x4j666j" path="res://ui/hud.gd" id="1_rbyyf"]
-[ext_resource type="PackedScene" path="res://ui/enter_name.tscn" id="2_276te"]
-
-[ext_resource type="PackedScene" uid="uid://d3m1yw63xmw8i" path="res://ui/leaderboard.tscn" id="3_546lt"]
 [ext_resource type="PackedScene" uid="uid://dfmc140gu4l1k" path="res://globals/chicken_game_music.tscn" id="4_7ihmi"]
 [ext_resource type="PackedScene" uid="uid://dh6ykrcsstbav" path="res://ui/pause_menu.tscn" id="5_en2x2"]
 [ext_resource type="PackedScene" uid="uid://brvm602igwqwq" path="res://ui/progress_bar.tscn" id="6_1v5rv"]
@@ -11,37 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://duwku4fnxdm76" path="res://ui/standard_panel.tscn" id="8_srpbi"]
 [ext_resource type="PackedScene" uid="uid://kva23e0islsy" path="res://ui/stopwatch.tscn" id="9_spcu4"]
 
-[node name="HUD" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="HUD" type="CanvasLayer"]
 script = ExtResource("1_rbyyf")
 shakeFade = 20.0
-
-[node name="Stopwatch" parent="." instance=ExtResource("9_spcu4")]
-layout_mode = 0
-offset_left = 979.0
-offset_top = 29.0
-offset_right = 980.0
-offset_bottom = 57.0
-
-[node name="SingleIconProgressBar" parent="." instance=ExtResource("6_1v5rv")]
-layout_mode = 2
-offset_left = 334.0
-offset_top = 14.0
-offset_right = 334.0
-offset_bottom = 37.0
-size_flags_horizontal = 4
-
-[node name="Leaderboard" parent="." instance=ExtResource("3_546lt")]
-visible = false
-offset_left = 14.0
-offset_top = 29.0
-offset_right = 14.0
-offset_bottom = 29.0
 
 [node name="PauseMenu" parent="." instance=ExtResource("5_en2x2")]
 visible = false
@@ -50,17 +19,28 @@ visible = false
 stream = ExtResource("8_spcu4")
 autoplay = true
 
-[node name="GenerationPanel" parent="." instance=ExtResource("8_srpbi")]
-layout_mode = 0
-offset_left = 23.0
-offset_top = 55.0
-offset_right = 133.0
-offset_bottom = 97.0
+[node name="GenerationPanel" parent="." groups=["shakable"] instance=ExtResource("8_srpbi")]
+offset_top = 34.0
+offset_right = 370.0
+offset_bottom = 34.0
 
-[node name="PickupPanel" parent="." instance=ExtResource("8_srpbi")]
-layout_mode = 0
-offset_left = 23.0
+[node name="PickupPanel" parent="." groups=["shakable"] instance=ExtResource("8_srpbi")]
+offset_top = 64.0
+offset_right = 370.0
+offset_bottom = 64.0
+text = "asdads"
+
+[node name="SingleIconProgressBar" parent="." groups=["shakable"] instance=ExtResource("6_1v5rv")]
+custom_minimum_size = Vector2(500, 0)
+offset_left = 390.0
 offset_top = 9.0
-offset_right = 133.0
-offset_bottom = 51.0
-text = "dsadfgasdfasda"
+offset_right = 890.0
+offset_bottom = 89.0
+size_flags_horizontal = 6
+
+[node name="Stopwatch" parent="." groups=["shakable"] instance=ExtResource("9_spcu4")]
+offset_left = 910.0
+offset_top = 35.0
+offset_right = 1280.0
+offset_bottom = 63.0
+size_flags_horizontal = 3

@@ -12,7 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://b554hksx6qxt3" path="res://entities/ChickenParticleEmitter.tscn" id="9_ybtjf"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_i81ls"]
-friction = 0.0
+friction = 2.0
+
 bounce = 9.22337e+18
 absorbent = true
 
@@ -187,19 +188,19 @@ physics_material_override = SubResource("PhysicsMaterial_i81ls")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_2peoh")
-move_speed = 200.0
+move_speed = 400.0
 initial_shit_amount = 0
 can_shit = true
 
 [node name="ChimkenSprite" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_v821y")
-animation = &"egg"
+animation = &"chick_idle"
 
 [node name="EggCollShape" type="CollisionShape2D" parent="."]
 shape = SubResource("CapsuleShape2D_ecc8j")
+disabled = true
 
 [node name="ChimkenCollShape" type="CollisionShape2D" parent="."]
-position = Vector2(1, -2)
 shape = SubResource("CapsuleShape2D_ybtjf")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]

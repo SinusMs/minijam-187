@@ -12,7 +12,6 @@
 
 [ext_resource type="PackedScene" uid="uid://c8e0fbvyah8ee" path="res://muschebubu.tscn" id="8_wrq57"]
 
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wrq57"]
 size = Vector2(828.5, 18598)
 
@@ -42,9 +41,6 @@ offset_bottom = -149.877
 rotation = 0.261799
 
 
-[node name="PauseMenu" parent="." instance=ExtResource("4_rqpdi")]
-visible = false
-
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_i6h5w")]
 
 scale = Vector2(1, 1)
@@ -63,7 +59,7 @@ position = Vector2(498, -4)
 position = Vector2(642, -147)
 
 [node name="FinishArea" type="Area2D" parent="."]
-position = Vector2(952, -1105)
+position = Vector2(952, -1105)process_mode = Node.PROCESS_MODE_PAUSABLE
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinishArea"]
 position = Vector2(2770, 1087)

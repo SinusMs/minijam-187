@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dm4b31s10w5ib" path="res://levels/reset_mini_level.gd" id="1_sbly6"]
 [ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="4_v2onm"]
 
-[node name="ChimkenMiniLevel" type="Node2D"]
+[node name="ChimkenMiniLevel2" type="Node2D"]
 script = ExtResource("1_sbly6")
 
 [node name="TileMapLayer" type="TileMapLayer" parent="."]
