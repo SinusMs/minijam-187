@@ -47,9 +47,6 @@ func _process(delta):
 	if move_persuer:
 		persuer_dtime += delta
 		print(persuer_dtime)
-	time_total += delta;
-	var progress: float = lerp(progress_start, progress_end, clampf(time_total / 10, 0, 1));
-	move_chicken_icon(progress);
 
 
 ## Moves the UI Progress Icon to [param progress]% [br]
@@ -62,7 +59,8 @@ func move_chicken_icon(progress: float) -> void:
 	
 	
 	if move_persuer:
-		$Panel/persuer.position.x = lerp(progress_start*1.0, progress, 1 - (persuer_speed - persuer_dtime)/ persuer_speed)
+		var temp = lerp(progress_start*1.0, progress, 1 - (persuer_speed - persuer_dtime)/ persuer_speed)
+		$Panel/persuer.position.x = lerp(progress_start, progress_end, clampf(temp, 0, 1))
 
 	pass
 
