@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://duwku4fnxdm76"]
 
 [ext_resource type="Texture2D" uid="uid://dyfe21mgkaxad" path="res://assets/button.png" id="1_cpm4b"]
-[ext_resource type="Script" path="res://ui/standard_panel.gd" id="2_ckbl2"]
+[ext_resource type="Script" uid="uid://dlyq24hvum4wl" path="res://ui/standard_panel.gd" id="2_ckbl2"]
 [ext_resource type="FontFile" uid="uid://4te7loletvh6" path="res://assets/font/ThaleahFat.ttf" id="3_ckbl2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tx66a"]

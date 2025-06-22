@@ -2,7 +2,7 @@ extends State
 class_name Chimken
 
 @export var character: RigidBody2D
-@export var chimken_shape: CollisionPolygon2D
+@export var chimken_shape: CollisionShape2D
 @export var chimken_sprite: AnimatedSprite2D
 @export var particle_emitter: Node2D
 

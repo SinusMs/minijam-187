@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bokydwynkrbia"]
+[gd_scene load_steps=31 format=3 uid="uid://bokydwynkrbia"]
 
 [ext_resource type="Script" uid="uid://rpfba4d1fiy7" path="res://entities/character/character_controller.gd" id="1_2peoh"]
 [ext_resource type="Script" uid="uid://bmhsu3tnko74x" path="res://entities/character/state_machine.gd" id="2_5rbde"]
@@ -173,11 +173,15 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ybtjf"]
+radius = 12.0
+
 [node name="CharacterControllerBody" type="RigidBody2D"]
 physics_material_override = SubResource("PhysicsMaterial_i81ls")
 contact_monitor = true
 max_contacts_reported = 1
 script = ExtResource("1_2peoh")
+move_speed = 200.0
 initial_shit_amount = 0
 can_shit = true
 
@@ -189,8 +193,9 @@ animation = &"chick_jump"
 polygon = PackedVector2Array(-3, -7, -6, -4, -7, -2, -7, 3, -6, 5, -3, 8, 2, 8, 5, 5, 6, 3, 6, -2, 5, -4, 2, -7)
 disabled = true
 
-[node name="ChimkenCollShape" type="CollisionPolygon2D" parent="."]
-polygon = PackedVector2Array(0, 13, 13, 10, 13, -7, 9, -15, 4, -15, -9, -5, -15, 2, -12, 10)
+[node name="ChimkenCollShape" type="CollisionShape2D" parent="."]
+position = Vector2(1, -2)
+shape = SubResource("CapsuleShape2D_ybtjf")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
 script = ExtResource("2_5rbde")
@@ -203,7 +208,7 @@ character = NodePath("../..")
 egg_shape = NodePath("../../EggCollShape")
 egg_sprite = NodePath("../../ChimkenSprite")
 particle_emitter = NodePath("../../ChickenParticleEmitter")
-crack_speed_threshold = 300.0
+crack_speed_threshold = 2000.0
 metadata/_custom_type_script = "uid://c2uxhropemok1"
 
 [node name="Chimken" type="Node" parent="StateMachine" node_paths=PackedStringArray("character", "chimken_shape", "chimken_sprite", "particle_emitter")]
@@ -221,7 +226,6 @@ script = ExtResource("6_cjobk")
 egg_sprite = NodePath("../../ChimkenSprite")
 character = NodePath("../..")
 chimken_shape = NodePath("../../ChimkenCollShape")
-metadata/_custom_type_script = "uid://bpqig4m2x7qas"
 
 [node name="Shitting" type="Node" parent="StateMachine" node_paths=PackedStringArray("chimken_sprite", "character", "chimken_shape")]
 script = ExtResource("7_ybtjf")
