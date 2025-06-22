@@ -272,11 +272,10 @@ metadata/_custom_type_script = "uid://bpqig4m2x7qas"
 [node name="ChickenParticleEmitter" parent="." instance=ExtResource("9_ybtjf")]
 
 [node name="WingSlap_SFX" parent="." instance=ExtResource("11_gqdnt")]
-stream = null
+volume_db = 2.0
 
 [node name="Shit_SFX" parent="." instance=ExtResource("12_v821y")]
 
 [node name="EggCrackSFX" parent="." instance=ExtResource("13_230m7")]
-stream = null
 
 [node name="ChickSFX" parent="." instance=ExtResource("14_3l65k")]
