@@ -5,24 +5,14 @@
 
 [node name="SingleIconProgressBar" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = 0
 script = ExtResource("1_gtq4w")
 
 [node name="Panel" type="Panel" parent="."]
 custom_minimum_size = Vector2(64, 16)
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -240.0
-offset_top = 29.0
-offset_right = 240.0
-offset_bottom = 109.0
-grow_horizontal = 2
+offset_right = 480.0
+offset_bottom = 80.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

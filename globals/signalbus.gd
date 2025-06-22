@@ -5,6 +5,8 @@ signal level_started
 
 signal egg_broke
 
+signal egg_laid
+
 signal pickup_picked(type: Pickup)
 
 signal name_entered(name: String)
