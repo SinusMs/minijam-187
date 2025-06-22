@@ -25,7 +25,6 @@ zoom = Vector2(2, 2)
 
 [node name="Sprite2D" type="Sprite2D" parent="Camera2D"]
 rotation = 0.261799
-scale = Vector2(1, 1)
 texture = ExtResource("2_ii2ba")
 
 [node name="CharacterControllerBody" parent="." instance=ExtResource("3_csg43")]
@@ -46,7 +45,7 @@ texture = ExtResource("4_2pqlg")
 position = Vector2(-111, 233)
 texture = ExtResource("4_2pqlg")
 
-[node name="wall_left" type="Area2D" parent="."]
+[node name="wall_left" type="StaticBody2D" parent="."]
 position = Vector2(-137, -263)
 rotation = 1.5708
 

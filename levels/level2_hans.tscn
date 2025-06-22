@@ -23,7 +23,6 @@ visible = false
 
 [node name="ParallaxBackground" parent="." instance=ExtResource("6_i6h5w")]
 scale = Vector2(1, 1)
-transform = Transform2D(0.965926, 0.258819, -0.258819, 0.965926, 0, 0)
 
 [node name="PickupContainer" type="Node2D" parent="."]
 
