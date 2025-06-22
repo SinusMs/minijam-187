@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 ######### screenshake variables
@@ -9,18 +9,19 @@ var shake_strength: float = 0.0
 var original_pos: Dictionary = {}
 #########
 
+@onready var generation_panel: Panel = $GenerationPanel
+@onready var pickup_panel: Panel = $PickupPanel
+
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS 
-
+	SignalBus.egg_broke.connect(shake_hud)
 	# screenshake init
 	SignalBus.egg_broke.connect(shake_hud)
 	for child in get_children():
-		if child is CanvasLayer or child is Node: continue
-		original_pos[child] = child.position
-	
-	
-func _process(delta: float) -> void:
+		if child is not CanvasLayer and child is not AudioStreamPlayer2D:
+			original_pos[child] = child.position
 
+func _process(delta: float) -> void:
 	# screenshake test trigger, shake with P
 	if Input.is_action_just_pressed("shake"):
 		shake_hud()
@@ -30,12 +31,12 @@ func _process(delta: float) -> void:
 	if shake_strength > 0:
 		shake_strength = lerpf(shake_strength, 0, shakeFade * delta)
 		for child in get_children():
-			if child is CanvasLayer:
-				continue
-			child.position = original_pos[child] + randomOffset()
+			if child is not CanvasLayer and child is not AudioStreamPlayer2D:
+				child.position = original_pos[child] + randomOffset()
+				
 			
-	$GenerationPanel.set_text("Gen: %d" % [Utils.generation])
-	$PickupPanel.set_text("%d / %d" % [Utils.current_pickups, Utils.needed_pickups])
+	generation_panel.set_text("Gen: %d" % [Utils.generation])
+	pickup_panel.set_text("%d / %d" % [Utils.current_pickups, Utils.needed_pickups])
 	
 
 ####### screen shake

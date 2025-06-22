@@ -12,6 +12,7 @@ var progress_current: float;
 var time_total: float = 0.0; # testing var
 
 func _ready():
+	process_mode = Node.PROCESS_MODE_PAUSABLE
 	# Setup progress bar start and end
 	progress_start = $Panel/ProgressIcon.position.x;
 	progress_end = progress_start + $Panel.size.x - $Panel/ProgressIcon.size.x;
