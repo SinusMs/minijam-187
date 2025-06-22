@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://be7p2o5witdg5"]
+
+[ext_resource type="PackedScene" uid="uid://drijtvq1ycw5o" path="res://entities/pickups/pickup.tscn" id="1_hs7yb"]
+[ext_resource type="Script" uid="uid://gh4ih1nc1mp0" path="res://entities/pickups/corn.gd" id="2_70ib5"]
+
+[node name="Corn" instance=ExtResource("1_hs7yb")]
+script = ExtResource("2_70ib5")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
