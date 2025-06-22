@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=4 uid="uid://bxddfr0hcllna"]
+
+[ext_resource type="TileSet" uid="uid://dpc4qslxyke1v" path="res://levels/new_tileset.tres" id="1_nl0hd"]
+[ext_resource type="PackedScene" uid="uid://bokydwynkrbia" path="res://entities/character/character_controller.tscn" id="2_ejfqf"]
+[ext_resource type="PackedScene" uid="uid://qa64vhko2yhk" path="res://entities/character/character_camera.tscn" id="3_y4bhk"]
+[ext_resource type="PackedScene" uid="uid://dm1u6whgit33u" path="res://entities/pickups/nougat_bits.tscn" id="4_mtsyi"]
+
+[node name="ChimkenMiniLevel1" type="Node2D"]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAD+/wIAAAAKAAQAAAD//wIAAAAMAAQAAAAAAAIAAAAMAAQAAAABAAIAAAAMAAQAAAACAAIAAAAMAAQAAAADAAIAAAAMAAQAAAAEAAIAAAAMAAQAAAAFAAIAAAAMAAQAAAAGAAIAAAANAAQAAAAHAP//AAALAAQAADAHAAIAAAAOAAQAAAAIAP//AAANAAUAAAAIAAAAAAAMAAQAAGAIAAEAAAAMAAQAAGAIAAIAAAAPAAQAAAADAAAAAAAPAAUAAAADAP//AAAMAAQAAFADAP7/AAAMAAQAAFADAP3/AAAOAAUAAAAEAP3/AAAMAAQAAAAFAP3/AAALAAQAAAAKAP7/AAAKAAQAAAALAP7/AAAMAAQAAAAMAP7/AAAPAAQAAAAMAP3/AAAMAAQAAGAMAPz/AAAMAAQAAGAMAPv/AAANAAUAAAALAPv/AAAMAAQAADAKAPv/AAAMAAQAADAJAPv/AAAPAAUAAFAJAPz/AAANAAUAADAKAPz/AAALAAQAAAADAPv/AAALAAQAAAACAPv/AAAKAAQAAAAFAPn/AAAKAAQAAAAGAPn/AAALAAQAAAAJAPj/AAAKAAQAAAAKAPj/AAALAAQAAAAEAAAAAAALAAQAAAA=")
+tile_set = ExtResource("1_nl0hd")
+
+[node name="CharacterControllerBody" parent="." instance=ExtResource("2_ejfqf")]
+move_speed = 250.0
+
+[node name="CharacterCamera" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_y4bhk")]
+player = NodePath("../CharacterControllerBody")
+
+[node name="pickups" type="Node" parent="."]
+
+[node name="NougatBits" parent="pickups" instance=ExtResource("4_mtsyi")]
+position = Vector2(137, -3)
+
+[node name="NougatBits2" parent="pickups" instance=ExtResource("4_mtsyi")]
+position = Vector2(321, -255)
+
+[node name="NougatBits3" parent="pickups" instance=ExtResource("4_mtsyi")]
+position = Vector2(328, -125)
