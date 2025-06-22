@@ -15,6 +15,12 @@ func Emit():
 	for child in get_children():
 		if child is CPUParticles2D:
 			child.emitting = true
+
+func emit_feathers() -> void:
+	$\"Feather Emitter\".emitting = true
+
+func emit_egg_shells() -> void:
+	$\"Egg Emitter\".emitting = true
 "
 
 [sub_resource type="Gradient" id="Gradient_hjmbq"]
