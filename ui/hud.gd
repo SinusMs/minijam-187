@@ -16,7 +16,6 @@ var original_pos: Dictionary = {}
 func _ready() -> void:
 	you_died_panel.visible = false
 	process_mode = Node.PROCESS_MODE_ALWAYS 
-	SignalBus.egg_broke.connect(shake_hud)
 	SignalBus.unalived.connect(on_unalived)
 	# screenshake init
 	SignalBus.egg_broke.connect(shake_hud)
@@ -27,7 +26,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# screenshake test trigger, shake with P
 	if Input.is_action_just_pressed("shake"):
-		shake_hud()
+		shake_hud(Vector2.ZERO)
 		print("P -> screen shaking")
 	
 	# shaking
@@ -43,7 +42,7 @@ func _process(delta: float) -> void:
 	
 
 ####### screen shake
-func shake_hud() -> void:
+func shake_hud(_pos: Vector2) -> void:
 	shake_strength = randomShakeStrength
 func randomOffset() -> Vector2:
 	return Vector2(rng.randf_range(-shake_strength, shake_strength), rng.randf_range(-shake_strength, shake_strength))
@@ -52,3 +51,8 @@ func randomOffset() -> Vector2:
 
 func on_unalived():
 	you_died_panel. visible = true
+
+
+func _on_return_button_pressed() -> void:
+	SignalBus.restart_game.emit()
+	pass # Replace with function body.
