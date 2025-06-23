@@ -1,7 +1,7 @@
 extends Node
 
 
-var leaderboard: Array = [["Lipski", 51.0], ["Zaubergurke", 73.3], ["Kukikeks", 83.3], ["Göndyr", 124.7], ["MysteriousJuice", 107.9]]
+var leaderboard: Array = [["Lipski", 51.0], ["Zaubergurke", 73.3], ["Kukikeks", 69.6], ["Göndyr", 124.7], ["MysteriousJuice", 107.9]]
 
 var crt: bool = false 
 
